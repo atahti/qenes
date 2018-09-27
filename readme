@@ -1,0 +1,36 @@
+QENES
+
+Qenes is a Qt based qenealogy software. It has some procedures for finding errors in given dates and names, it has a relationship counter, report into pdf, single html or multiple html, with or without privacy settings, has no limitations for how many childs or spouses a person may have. This is still alfa version in a sense that I really dont consider myself as a good programmer and this still is a learning insentive programming, but on the other hand this works so well that I do my own genealogy study now with this and let my relatives to read the reports generated with qenes. 
+
+INSTALLATION
+
+Installation in this version is rather manual process, you should compile the source code by using QtCreator. Once compiled, create a directory for qenes and copy following files in that directory:
+- the executable qenes file
+- defaults.ini
+- malenames.ini
+- femalenames.ini
+- places.ini
+- patronyms.ini
+- directory reporter/
+
+INSTUCTIONS
+
+The usage should be quite logical, I hope. Some instructions anyway:
+
+qenes has "error finder" feature. The error finder routine will be run in the background every now and then, and when qenes will find an error in the data the ! mark will be set visible on the box of individual where error occured. Alternative you may find the errors form menu.
+
+For each event type, there are allowed min / max days for that event. For example, graduation has a default minimum age 10 and maximum age 100, so if a person has been graduated in age 101 that will be reported as an error. Also, each event type has an "order" value, so that for example christening has a default order value 2, whereas graduation has a default order 4. If graduation of a person happens earlier than christening, that is reported as an error. All these min/max/order values can be changed form settings menu. Events with order 0 can happen whenever person is alive.
+
+Each male, female and place name will be checked so that all names that are not in files malenames, femalenames, placenames, will be reported as an error. Those names, that end with the string that's in patronyms file, wont be reported as an error. For example, if there is "sson" in the patronym file, then "arvidsson" will not be reported as error. Place names will be checked so, that different individual names can be divided with a "/" mark, and additions that wont be reported as error can be added in brackets. For example for name given as "U.S.A. / New York / Cooperstown (house unknown)", place names "U.S.A.", "New York" and "Cooperstown" will be checked separately, but the additional info "town unknown" will be unchecked.
+
+RELATIONSHIP COUNTER
+
+In settings menu, the "codes" for different relationships can be changed. As a default, for example f denotes to father, m to mother, c to cousin etc... Default root person is the first person in the database and in current version, that cannot be changed. Logic for relationship marking is for example : f = father, 2f = ff = fathers father, 3m2f = mothers mothers mothers fathers father etc...
+
+REPORTING
+
+PDF report is a standard pdf document, where everything of the report is in one file. Reporting to a single html file looks essentially similar to the pdf report, but the format is thus html and also all image files should be separately available when browsing the html file. Reporting to many html files creates a large report, where each html file has just one individual plus a concise family tree. When creating a single html or many page html report, all the photo files will be copied in the same directory than the html file(s) so that they are easy to copy to a web server.
+
+BROWSE HISTORY & SEARCH
+
+"Browse history & search" in the main window, shows the persons where you have been browsing. The same list is also for showing the results of search.

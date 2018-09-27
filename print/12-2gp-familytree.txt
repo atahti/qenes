@@ -1,0 +1,10 @@
+<tr class="small">
+<td colspan="8" bgcolor="#ccffff">FFF-NAME<br>FFF-BIRTH FFF-DEATH</td>
+<td colspan="8" bgcolor="#ffcccc">FFM-NAME<br>FFM-BIRTH FFM-DEATH</td>
+<td colspan="8" bgcolor="#ccffff">FMF-NAME<br>FMF-BIRTH FMF-DEATH</td>
+<td colspan="8" bgcolor="#ffcccc">FMM-NAME<br>FMM-BIRTH FMM-DEATH</td>
+<td colspan="8" bgcolor="#ccffff">MFF-NAME<br>MFF-BIRTH MFF-DEATH</td>
+<td colspan="8" bgcolor="#ffcccc">MFM-NAME<br>MFM-BIRTH MFM-DEATH</td>
+<td colspan="8" bgcolor="#ccffff">MMF-NAME<br>MMF-BIRTH MMF-DEATH</td>
+<td colspan="8" bgcolor="#ffcccc">MMM-NAME<br>MMM-BIRTH MMM-DEATH</td>
+</tr>

@@ -1,0 +1,9 @@
+Jos printatessa pistää esim ei kaikki serkut, raportissa voi olla henk id "0 (123)", vois olla "not in this report"
+
+all cousins = on, OBP off => toimii
+AC off, OBP off => ei
+OBP ei tee mitään??
+
+Lapsilistassa näkyy tiedot jos on asetettu "uutuusraja"
+
+Kun all cousins/ABP toimii kokeile pistää family data=> father ja kato mihin campparin tiedot menee

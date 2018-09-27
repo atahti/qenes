@@ -1,0 +1,18 @@
+<tr class="smaller">
+<td colspan="4" bgcolor="#ccffff">FFFF-NAME<br>FFFF-BIRTH</td>
+<td colspan="4" bgcolor="#ffcccc">FFFM-NAME<br>FFFM-BIRTH</td>
+<td colspan="4" bgcolor="#ccffff">FFMF-NAME<br>FFMF-BIRTH</td>
+<td colspan="4" bgcolor="#ffcccc">FFMM-NAME<br>FFMM-BIRTH</td>
+<td colspan="4" bgcolor="#ccffff">FMFF-NAME<br>FMFF-BIRTH</td>
+<td colspan="4" bgcolor="#ffcccc">FMFM-NAME<br>FMFM-BIRTH</td>
+<td colspan="4" bgcolor="#ccffff">FMMF-NAME<br>FMMF-BIRTH</td>
+<td colspan="4" bgcolor="#ffcccc">FMMM-NAME<br>FMMM-BIRTH</td>
+<td colspan="4" bgcolor="#ccffff">MFFF-NAME<br>MFFF-BIRTH</td>
+<td colspan="4" bgcolor="#ffcccc">MFFM-NAME<br>MFFM-BIRTH</td>
+<td colspan="4" bgcolor="#ccffff">MFMF-NAME<br>MFMF-BIRTH</td>
+<td colspan="4" bgcolor="#ffcccc">MFMM-NAME<br>MFMM-BIRTH</td>
+<td colspan="4" bgcolor="#ccffff">MMFF-NAME<br>MMFF-BIRTH</td>
+<td colspan="4" bgcolor="#ffcccc">MMFM-NAME<br>MMFM-BIRTH</td>
+<td colspan="4" bgcolor="#ccffff">MMMF-NAME<br>MMMF-BIRTH</td>
+<td colspan="4" bgcolor="#ffcccc">MMMM-NAME<br>MMMM-BIRTH</td>
+</tr>

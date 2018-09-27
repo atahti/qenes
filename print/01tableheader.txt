@@ -1,0 +1,12 @@
+LINKTOTHISPERSON
+
+<table bgcolor="#ffffcc" cellpadding="0" cellspacing="0" width="100%" INSERT_BORDER_HERE>
+<tbody>
+
+<tr class="title">
+<td colspan="6"  width="9%"><b>GENDER TABLEID</b></td>
+<td colspan="34"><b><b>FAMILYNAME NAME1 NAME2 NAME3</b></b></td>
+<td colspan="16"><b><b>RELA</b></b><small><small>  CHANGED</small></small>
+<td rowspan="ROWCOUNT" colspan="8" bgcolor="CELLCOLOR" width="12%"><small><small>FILENAME</small></small></td>
+</tr>
+

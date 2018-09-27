@@ -1,0 +1,9 @@
+<tr class="event-title">
+<td colspan="18">Child</td>
+<td colspan="6">Birth</td>
+<td colspan="2">Moth</td>
+<td colspan="2">Fath</td>
+<td colspan="12" >Place</td>
+<td colspan="2">Death</td>
+<td colspan="14">Notes</td>
+</tr>

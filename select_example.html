@@ -1,0 +1,52 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <title>HTML Select Example</title>
+  </head>
+  <body>
+
+    <h1>HTML Select Example</h1>
+
+    <p>This page contains a few examples of how to use an HTML dropdown (<a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.6">select</a>) box to link to other pages. Since this is a misuse of the select element, we have to cheat by using a tiny bit of <a href="http://hotwired.lycos.com/webmonkey/programming/javascript/tutorials/tutorial1.html">JavaScript</a> to do the dirty work.</p>
+
+    <p>You may examine <a href="http://www.csee.wvu.edu/%7Eriggs/html/select_example.html.txt">source of this page</a>
+ to see how it works, or you should be able to right-click and "View 
+Source" (since Internet Explorer rudely ignores the HTTP Content-Type).</p>
+
+    <h2>Method 1</h2>
+
+    <p>The following dropdown box will open the specified report in a 
+new browser window as soon as it is selected. Note that many people 
+block javascript popup windows.</p>
+
+    <form>
+      <select onchange="javascript:window.open(this.value)">
+        <option selected="selected" value="week1.html">Week 1</option>
+        <option value="week2.html">Week 2</option>
+        <option value="week3.html">Week 3</option>
+      </select>
+    </form>
+
+    <h2>Method 2</h2>
+
+    <p>The following dropdown box will allow the user to specify which 
+page to go to, then change the contents of the current browser window 
+once the "Go!" button is clicked.</p>
+
+    <form name="report_form" action="javascript:document.location=document.report_form.report.value">
+      <select name="report">
+        <option value="week1.html">Week 1</option>
+        <option value="week2.html">Week 2</option>
+        <option selected="selected" value="week3.html">Week 3</option>
+      </select>
+      <input value="Go!" type="submit">
+    </form>
+
+    <hr>
+    <address><a href="mailto:riggs@csee.wvu.edu">David A. Riggs</a></address>
+<!-- Created: Wed Sep 24 02:54:27 EDT 2003 -->
+<!-- hhmts start -->
+Last modified: Wed Sep 24 03:27:30 EDT 2003
+<!-- hhmts end -->
+  
+
+</body></html>

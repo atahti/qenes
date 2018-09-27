@@ -1,0 +1,4 @@
+<tr class="event-title">
+<td colspan="6">Marriage:</td>
+<td colspan="50">SPOUSEID SPOUSEFAMILY SPOUSENOTE</td>
+</tr>

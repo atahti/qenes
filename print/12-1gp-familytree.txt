@@ -1,0 +1,6 @@
+<tr class="small">
+<td colspan="16" bgcolor="#ccffff" width="25%">FF-NAME FF-BIRTH FF-DEATH</td>
+<td colspan="16" bgcolor="#ffcccc" width="25%">FM-NAME FM-BIRTH FM-DEATH</td>
+<td colspan="16" bgcolor="#ccffff" width="25%">MF-NAME MF-BIRTH MF-DEATH</td>
+<td colspan="16" bgcolor="#ffcccc" width="25%">MM-NAME MM-BIRTH MM-DEATH</td>
+</tr>

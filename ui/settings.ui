@@ -1,0 +1,3969 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>uiSettings</class>
+ <widget class="QDialog" name="uiSettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>925</width>
+    <height>617</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>6</number>
+   </property>
+   <property name="topMargin">
+    <number>6</number>
+   </property>
+   <property name="rightMargin">
+    <number>6</number>
+   </property>
+   <property name="bottomMargin">
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="tabDateFormats">
+      <attribute name="title">
+       <string>Day Formats</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_11">
+       <item row="3" column="1">
+        <widget class="QComboBox" name="uiBefFormat">
+         <item>
+          <property name="text">
+           <string>Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Month-Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Day-Month-Year</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="5" column="3">
+        <widget class="QCheckBox" name="uiFatherUncleCheck">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="2">
+        <widget class="QLabel" name="label_70">
+         <property name="text">
+          <string>2nd Cousin</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="2">
+        <widget class="QLabel" name="label_71">
+         <property name="text">
+          <string>3rd Cousin</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QCheckBox" name="uiMotherUncleCheck">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLabel" name="label_64">
+         <property name="text">
+          <string>Child</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>After (AFT)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="4">
+        <widget class="QLineEdit" name="uiMotherUncle">
+         <property name="text">
+          <string>u</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="4">
+        <widget class="QLineEdit" name="ui2ndCousin">
+         <property name="text">
+          <string>'C</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="3">
+        <widget class="QCheckBox" name="uiCousinCheck">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="label_65">
+         <property name="text">
+          <string>Sister</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QLineEdit" name="uiMother">
+         <property name="text">
+          <string>m</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QCheckBox" name="uiChildCheck">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="3">
+        <widget class="QCheckBox" name="ui3rdCousinCheck">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_20">
+         <property name="text">
+          <string>Exactly (EXA)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="2">
+        <widget class="QLabel" name="label_69">
+         <property name="text">
+          <string>Cousin</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>Before (BEF)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="4">
+        <widget class="QLineEdit" name="ui3rdCousin">
+         <property name="text">
+          <string>&quot;C</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="4">
+        <widget class="QLineEdit" name="uiFatherUncle">
+         <property name="text">
+          <string>u</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="4">
+        <widget class="QLineEdit" name="uiChild">
+         <property name="text">
+          <string>c</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Estimated (EST)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QCheckBox" name="uiSisterCheck">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_62">
+         <property name="text">
+          <string>Father</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Calculated (CAL)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLineEdit" name="uiFather">
+         <property name="text">
+          <string>f</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_21">
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>From (FRO)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4">
+        <widget class="QLineEdit" name="uiSister">
+         <property name="text">
+          <string>s</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="label_63">
+         <property name="text">
+          <string>Mother</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>About (ABT)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="2">
+        <widget class="QLabel" name="label_68">
+         <property name="text">
+          <string>Aunt</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QLabel" name="label_66">
+         <property name="text">
+          <string>Mother side Uncle</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="uiCalFormat">
+         <item>
+          <property name="text">
+           <string>Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Month-Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Day-Month-Year</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="6" column="4">
+        <widget class="QLineEdit" name="uiAunt">
+         <property name="text">
+          <string>a</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="3">
+        <widget class="QCheckBox" name="uiAuntCheck">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="4">
+        <widget class="QLineEdit" name="uiCousin">
+         <property name="text">
+          <string>C</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="uiFroFormat">
+         <item>
+          <property name="text">
+           <string>Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Month-Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Day-Month-Year</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="uiExaFormat">
+         <item>
+          <property name="text">
+           <string>Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Month-Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Day-Month-Year</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QLabel" name="label_67">
+         <property name="text">
+          <string>Father side Uncle</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="uiAbtFormat">
+         <item>
+          <property name="text">
+           <string>Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Month-Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Day-Month-Year</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="uiEstFormat">
+         <item>
+          <property name="text">
+           <string>Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Month-Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Day-Month-Year</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="8" column="3">
+        <widget class="QCheckBox" name="ui2ndCousinCheck">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="uiAftFormat">
+         <item>
+          <property name="text">
+           <string>Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Month-Year</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Day-Month-Year</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabEvents">
+      <attribute name="title">
+       <string>Events</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="1" column="0">
+        <widget class="QTabWidget" name="eventTabWidget">
+         <property name="font">
+          <font>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="currentIndex">
+          <number>3</number>
+         </property>
+         <widget class="QWidget" name="tabIndiEvents">
+          <attribute name="title">
+           <string>Indi. event</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="3" column="0">
+            <widget class="QScrollArea" name="indiScrollArea">
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>496</width>
+                <height>694</height>
+               </rect>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_4" rowstretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" columnstretch="0,0,0,0,0,0,0,0,0">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="19" column="2">
+                <widget class="QCheckBox" name="uiUseIndi18">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <widget class="QLabel" name="uiIndiLabel7">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="uiManyIndi2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QCheckBox" name="uiUseIndi2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi2">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi1">
+                 <property name="maximum">
+                  <number>0</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi1">
+                 <property name="maximum">
+                  <number>0</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi1">
+                 <property name="maximum">
+                  <number>0</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi2">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi2">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QCheckBox" name="uiManyIndi3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QCheckBox" name="uiUseIndi3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi3">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi3">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi3">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="16" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi15">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QCheckBox" name="uiManyIndi4">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QCheckBox" name="uiUseIndi4">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi4">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi4">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi4">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="uiIndiLabel5">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QCheckBox" name="uiManyIndi5">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="2">
+                <widget class="QCheckBox" name="uiUseIndi5">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi5">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="17" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi16">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi5">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi5">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="uiIndiLabel6">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QCheckBox" name="uiManyIndi6">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="2">
+                <widget class="QCheckBox" name="uiUseIndi6">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi6">
+                 <property name="minimum">
+                  <number>-999</number>
+                 </property>
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin1"/>
+               </item>
+               <item row="7" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi6">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi6">
+                 <property name="maximum">
+                  <number>4000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QCheckBox" name="uiManyIndi7">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="2">
+                <widget class="QCheckBox" name="uiUseIndi7">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0">
+                <widget class="QLabel" name="uiIndiLabel8">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi7">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi7">
+                 <property name="maximum">
+                  <number>4000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
+                <widget class="QCheckBox" name="uiManyIndi8">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="2">
+                <widget class="QCheckBox" name="uiUseIndi8">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi8">
+                 <property name="minimum">
+                  <number>-999</number>
+                 </property>
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi8">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi8">
+                 <property name="maximum">
+                  <number>4000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="0">
+                <widget class="QLabel" name="uiIndiLabel9">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="1">
+                <widget class="QCheckBox" name="uiManyIndi9">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="2">
+                <widget class="QCheckBox" name="uiUseIndi9">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi9">
+                 <property name="minimum">
+                  <number>-999</number>
+                 </property>
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="0">
+                <widget class="QLabel" name="uiIndiLabel10">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi9">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi9">
+                 <property name="maximum">
+                  <number>4000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin10"/>
+               </item>
+               <item row="11" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi10">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="1">
+                <widget class="QCheckBox" name="uiManyIndi10">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="2">
+                <widget class="QCheckBox" name="uiUseIndi10">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi10">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi10">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="0">
+                <widget class="QLabel" name="uiIndiLabel11">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="2">
+                <widget class="QCheckBox" name="uiUseIndi11">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi11">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi11">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="1">
+                <widget class="QCheckBox" name="uiManyIndi12">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi11">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="0">
+                <widget class="QLabel" name="uiIndiLabel12">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi12">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="2">
+                <widget class="QCheckBox" name="uiUseIndi12">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi12">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi12">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="1">
+                <widget class="QCheckBox" name="uiManyIndi13">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="2">
+                <widget class="QCheckBox" name="uiUseIndi13">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="0">
+                <widget class="QLabel" name="uiIndiLabel13">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi13">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi13">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi13">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="0">
+                <widget class="QLabel" name="uiIndiLabel14">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi14">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="1">
+                <widget class="QCheckBox" name="uiManyIndi14">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi14">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="2">
+                <widget class="QCheckBox" name="uiUseIndi14">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi14">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="16" column="1">
+                <widget class="QCheckBox" name="uiManyIndi15">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="16" column="2">
+                <widget class="QCheckBox" name="uiUseIndi15">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="16" column="0">
+                <widget class="QLabel" name="uiIndiLabel15">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax26"/>
+               </item>
+               <item row="16" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi15">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="16" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi15">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="17" column="0">
+                <widget class="QLabel" name="uiIndiLabel16">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="17" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi16">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="17" column="1">
+                <widget class="QCheckBox" name="uiManyIndi16">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="17" column="2">
+                <widget class="QCheckBox" name="uiUseIndi16">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="6">
+                <widget class="QLabel" name="label_19">
+                 <property name="text">
+                  <string>After </string>
+                 </property>
+                </widget>
+               </item>
+               <item row="17" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi16">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="1">
+                <widget class="QCheckBox" name="uiManyIndi17">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="2">
+                <widget class="QCheckBox" name="uiUseIndi17">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="0">
+                <widget class="QLabel" name="uiIndiLabel17">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi17">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi17">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi17">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="1">
+                <widget class="QCheckBox" name="uiManyIndi18">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="0">
+                <widget class="QLabel" name="uiIndiLabel18">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi18">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi18">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi18">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="0">
+                <widget class="QLabel" name="uiIndiLabel19">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi19">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="1">
+                <widget class="QCheckBox" name="uiManyIndi19">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi19">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="2">
+                <widget class="QCheckBox" name="uiUseIndi19">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi19">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="1">
+                <widget class="QCheckBox" name="uiManyIndi20">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="2">
+                <widget class="QCheckBox" name="uiUseIndi20">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="0">
+                <widget class="QLabel" name="uiIndiLabel20">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi20">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi20">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi20">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="0">
+                <widget class="QLabel" name="uiIndiLabel21">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi21">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="1">
+                <widget class="QCheckBox" name="uiManyIndi21">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi21">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="2">
+                <widget class="QCheckBox" name="uiUseIndi21">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi21">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="1">
+                <widget class="QCheckBox" name="uiManyIndi22">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="2">
+                <widget class="QCheckBox" name="uiUseIndi22">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="0">
+                <widget class="QLabel" name="uiIndiLabel22">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi22">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi22">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi22">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="1">
+                <widget class="QCheckBox" name="uiManyIndi23">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="0">
+                <widget class="QLabel" name="uiIndiLabel23">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="2">
+                <widget class="QCheckBox" name="uiUseIndi23">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi23">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi23">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi23">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="0">
+                <widget class="QLabel" name="uiIndiLabel24">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="1">
+                <widget class="QCheckBox" name="uiManyIndi24">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="2">
+                <widget class="QCheckBox" name="uiUseIndi24">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi24">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi24">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi24">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="26" column="0">
+                <widget class="QLabel" name="uiIndiLabel25">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="26" column="1">
+                <widget class="QCheckBox" name="uiManyIndi25">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="26" column="2">
+                <widget class="QCheckBox" name="uiUseIndi25">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="26" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi25">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="26" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi25">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="26" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi25">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="0">
+                <widget class="QLabel" name="uiIndiLabel26">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="1">
+                <widget class="QCheckBox" name="uiManyIndi26">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="2">
+                <widget class="QCheckBox" name="uiUseIndi26">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi26">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi26">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi26">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="28" column="0">
+                <widget class="QLabel" name="uiIndiLabel27">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="28" column="1">
+                <widget class="QCheckBox" name="uiManyIndi27">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="28" column="2">
+                <widget class="QCheckBox" name="uiUseIndi27">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="28" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi27">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="28" column="4">
+                <widget class="QSpinBox" name="uiAgeCalIndi27">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="28" column="5">
+                <widget class="QSpinBox" name="uiAgeMaxIndi27">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="3">
+                <widget class="QSpinBox" name="uiAgeMinIndi7">
+                 <property name="minimum">
+                  <number>-999</number>
+                 </property>
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="1">
+                <widget class="QCheckBox" name="uiManyIndi11">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax1"/>
+               </item>
+               <item row="3" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin2"/>
+               </item>
+               <item row="3" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax2"/>
+               </item>
+               <item row="4" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin3"/>
+               </item>
+               <item row="4" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax3"/>
+               </item>
+               <item row="5" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin4"/>
+               </item>
+               <item row="5" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax4"/>
+               </item>
+               <item row="6" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin5"/>
+               </item>
+               <item row="6" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax5"/>
+               </item>
+               <item row="7" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin6"/>
+               </item>
+               <item row="7" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax6"/>
+               </item>
+               <item row="8" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin7"/>
+               </item>
+               <item row="8" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax7"/>
+               </item>
+               <item row="9" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin8"/>
+               </item>
+               <item row="9" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax8"/>
+               </item>
+               <item row="10" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin9"/>
+               </item>
+               <item row="10" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax9"/>
+               </item>
+               <item row="11" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax10"/>
+               </item>
+               <item row="12" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin11"/>
+               </item>
+               <item row="12" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax11"/>
+               </item>
+               <item row="13" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin12"/>
+               </item>
+               <item row="13" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax12"/>
+               </item>
+               <item row="14" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin13"/>
+               </item>
+               <item row="14" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax13"/>
+               </item>
+               <item row="15" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin14"/>
+               </item>
+               <item row="15" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax14"/>
+               </item>
+               <item row="16" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin15"/>
+               </item>
+               <item row="16" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax15"/>
+               </item>
+               <item row="17" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin16"/>
+               </item>
+               <item row="17" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax16"/>
+               </item>
+               <item row="18" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin17"/>
+               </item>
+               <item row="18" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax17"/>
+               </item>
+               <item row="19" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin18"/>
+               </item>
+               <item row="19" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax18"/>
+               </item>
+               <item row="20" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin19"/>
+               </item>
+               <item row="20" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax19"/>
+               </item>
+               <item row="21" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin20"/>
+               </item>
+               <item row="21" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax20"/>
+               </item>
+               <item row="22" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin21"/>
+               </item>
+               <item row="22" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax21"/>
+               </item>
+               <item row="23" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin22"/>
+               </item>
+               <item row="23" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax22"/>
+               </item>
+               <item row="24" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin23"/>
+               </item>
+               <item row="24" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax23"/>
+               </item>
+               <item row="25" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin24"/>
+               </item>
+               <item row="25" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax24"/>
+               </item>
+               <item row="26" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin25"/>
+               </item>
+               <item row="26" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax25"/>
+               </item>
+               <item row="27" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin26"/>
+               </item>
+               <item row="28" column="6">
+                <widget class="QComboBox" name="uiEntryIndiLimitMin27"/>
+               </item>
+               <item row="28" column="7">
+                <widget class="QComboBox" name="uiEntryIndiLimitMax27"/>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_43">
+                 <property name="text">
+                  <string>Min</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_50">
+                 <property name="text">
+                  <string>Cal.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_72">
+                 <property name="text">
+                  <string>Max</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_22">
+                 <property name="text">
+                  <string>Before</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_8">
+                 <property name="text">
+                  <string>Use</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_11">
+                 <property name="text">
+                  <string>Many</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="uiManyIndi1">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QCheckBox" name="uiUseIndi1">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="uiIndiLabel4">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="uiIndiLabel3">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="uiIndiLabel2">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="uiIndiLabel1">
+                 <property name="text">
+                  <string>[indi]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_6">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>18</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Event</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi1">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi2">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi3">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi4">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi5">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi6">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi7">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi8">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi9">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi10">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi11">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi12">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi13">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi14">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="16" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi15">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="17" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi16">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi17">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi18">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi19">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi20">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi21">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi22">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi23">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi24">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="26" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi25">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi26">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="28" column="8">
+                <widget class="QCheckBox" name="uiPrintIndi27">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="8">
+                <widget class="QLabel" name="label_28">
+                 <property name="text">
+                  <string>Print</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabFamEvents">
+          <attribute name="title">
+           <string>Family Events</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="0">
+            <widget class="QScrollArea" name="famScrollArea">
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>497</width>
+                <height>294</height>
+               </rect>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_7" columnstretch="0,0,0,0,0,0,0,0,0,0">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="1" column="0">
+                <widget class="QLabel" name="uiFamLabel1">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="uiManyFam1">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QCheckBox" name="uiUseFam1">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam1">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam1">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="uiFamLabel2">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="uiManyFam2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QCheckBox" name="uiUseFam2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam2">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam2">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam2">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="uiFamLabel3">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="uiManyFam3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QCheckBox" name="uiUseFam3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam3">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam3">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam3">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="uiFamLabel4">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QCheckBox" name="uiManyFam4">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QCheckBox" name="uiUseFam4">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam4">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam4">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam4">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="uiFamLabel5">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QCheckBox" name="uiManyFam5">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QCheckBox" name="uiUseFam5">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam5">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="uiFamLabel6">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam5">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam5">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QCheckBox" name="uiManyFam6">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="2">
+                <widget class="QCheckBox" name="uiUseFam6">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam6">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam6">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam6">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="uiFamLabel7">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QCheckBox" name="uiManyFam7">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="2">
+                <widget class="QCheckBox" name="uiUseFam7">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam7">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam7">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam7">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <widget class="QLabel" name="uiFamLabel8">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QCheckBox" name="uiManyFam8">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="2">
+                <widget class="QCheckBox" name="uiUseFam8">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam8">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0">
+                <widget class="QLabel" name="uiFamLabel9">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam8">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam8">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
+                <widget class="QCheckBox" name="uiManyFam9">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="2">
+                <widget class="QCheckBox" name="uiUseFam9">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam9">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam9">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam9">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="0">
+                <widget class="QLabel" name="uiFamLabel10">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="1">
+                <widget class="QCheckBox" name="uiManyFam10">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="2">
+                <widget class="QCheckBox" name="uiUseFam10">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam10">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam10">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam10">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="2">
+                <widget class="QCheckBox" name="uiUseFam11">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="1">
+                <widget class="QCheckBox" name="uiManyFam11">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="0">
+                <widget class="QLabel" name="uiFamLabel11">
+                 <property name="text">
+                  <string>[fami]</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam11">
+                 <property name="minimum">
+                  <number>-999</number>
+                 </property>
+                 <property name="maximum">
+                  <number>999</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="5">
+                <widget class="QSpinBox" name="uiAgeCalFam11">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="6">
+                <widget class="QSpinBox" name="uiAgeMaxFam11">
+                 <property name="minimum">
+                  <number>-999</number>
+                 </property>
+                 <property name="maximum">
+                  <number>999</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin1"/>
+               </item>
+               <item row="1" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax1"/>
+               </item>
+               <item row="2" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin2"/>
+               </item>
+               <item row="2" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax2"/>
+               </item>
+               <item row="3" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin3"/>
+               </item>
+               <item row="3" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax3"/>
+               </item>
+               <item row="4" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin4"/>
+               </item>
+               <item row="4" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax4"/>
+               </item>
+               <item row="5" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin5"/>
+               </item>
+               <item row="6" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin6"/>
+               </item>
+               <item row="5" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax5"/>
+               </item>
+               <item row="7" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin7"/>
+               </item>
+               <item row="8" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin8"/>
+               </item>
+               <item row="9" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin9"/>
+               </item>
+               <item row="10" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin10"/>
+               </item>
+               <item row="12" column="7">
+                <widget class="QComboBox" name="uiEntryFamLimitMin11"/>
+               </item>
+               <item row="6" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax6"/>
+               </item>
+               <item row="7" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax7"/>
+               </item>
+               <item row="8" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax8"/>
+               </item>
+               <item row="9" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax9"/>
+               </item>
+               <item row="1" column="4">
+                <widget class="QSpinBox" name="uiAgeMinFam1">
+                 <property name="maximum">
+                  <number>130</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax10"/>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_159">
+                 <property name="text">
+                  <string>Min</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="8">
+                <widget class="QComboBox" name="uiEntryFamLimitMax11"/>
+               </item>
+               <item row="13" column="4">
+                <spacer name="verticalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="0" column="6">
+                <widget class="QLabel" name="label_161">
+                 <property name="text">
+                  <string>Max</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_157">
+                 <property name="text">
+                  <string>Many</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_156">
+                 <property name="text">
+                  <string>Cal.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_158">
+                 <property name="text">
+                  <string>Use</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_23">
+                 <property name="text">
+                  <string>After</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="8">
+                <widget class="QLabel" name="label_24">
+                 <property name="text">
+                  <string>Before</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_155">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>18</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Event</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="9">
+                <widget class="QCheckBox" name="uiPrintFam1">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="9">
+                <widget class="QCheckBox" name="uiPrintFam2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="9">
+                <widget class="QCheckBox" name="uiPrintFam3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="9">
+                <widget class="QCheckBox" name="uiPrintFam4">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="9">
+                <widget class="QCheckBox" name="uiPrintFam5">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="9">
+                <widget class="QCheckBox" name="uiPrintFam6">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="9">
+                <widget class="QCheckBox" name="uiPrintFam7">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="9">
+                <widget class="QCheckBox" name="uiPrintFam8">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="9">
+                <widget class="QCheckBox" name="uiPrintFam9">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="9">
+                <widget class="QCheckBox" name="uiPrintFam10">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="9">
+                <widget class="QCheckBox" name="uiPrintFam11">
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="9">
+                <widget class="QLabel" name="label_32">
+                 <property name="text">
+                  <string>Print</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabAgeRules">
+          <attribute name="title">
+           <string>Event age rules</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Spouse age - wife age Min</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Max</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="6">
+            <widget class="QSpinBox" name="uiSpouseWifeMax"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>Mother age - child age</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2" colspan="2">
+            <widget class="QLabel" name="label_94">
+             <property name="text">
+              <string>Min</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QSpinBox" name="uiMotherChildMin"/>
+           </item>
+           <item row="1" column="5">
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>Max</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="6">
+            <widget class="QSpinBox" name="uiMotherChildMax"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_73">
+             <property name="text">
+              <string>Father age - child age</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2" colspan="2">
+            <widget class="QLabel" name="label_74">
+             <property name="text">
+              <string>Min</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QSpinBox" name="uiFatherChildMin"/>
+           </item>
+           <item row="2" column="5">
+            <widget class="QLabel" name="label_77">
+             <property name="text">
+              <string>Max</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="6">
+            <widget class="QSpinBox" name="uiFatherChildMax"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_15">
+             <property name="text">
+              <string>Year for all events</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>Min</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4">
+            <widget class="QSpinBox" name="uiAllMin">
+             <property name="maximum">
+              <number>10000</number>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="5">
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>Max</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="6">
+            <widget class="QSpinBox" name="uiAllMax">
+             <property name="maximum">
+              <number>10000</number>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QCheckBox" name="uiDisableTimeLimits">
+             <property name="text">
+              <string>Disable event time limits</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Min</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QSpinBox" name="uiSpouseWifeMin"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabUsrEvents">
+          <attribute name="title">
+           <string>Usr events</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_10">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_18">
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Person Attributes</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_75">
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Family attributes</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QListWidget" name="uiIndiUsrAttr"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QListWidget" name="uiFamUsrAttr"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="uiIndiAttrAdd">
+             <property name="text">
+              <string>Add</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="uiFamAttrAdd">
+             <property name="text">
+              <string>Add</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabNames">
+      <attribute name="title">
+       <string>Registered Words</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_79">
+         <property name="text">
+          <string>Male names</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_80">
+         <property name="text">
+          <string>Female names</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QListWidget" name="uiMaleNames"/>
+       </item>
+       <item row="1" column="2" colspan="2">
+        <widget class="QListWidget" name="uiFemaleNames"/>
+       </item>
+       <item row="6" column="0" colspan="2">
+        <widget class="QCheckBox" name="uiSuggestGenre">
+         <property name="text">
+          <string>Suggest genre</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="uiAddMaleName">
+         <property name="text">
+          <string>Add</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QListWidget" name="uiPlaces"/>
+       </item>
+       <item row="6" column="2" colspan="2">
+        <widget class="QCheckBox" name="uiSuggestFamilyName">
+         <property name="text">
+          <string>Suggest family name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="uiAddFemaleName">
+         <property name="text">
+          <string>Add</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="uiDeleteFemaleName">
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QPushButton" name="uiAddPlace">
+         <property name="text">
+          <string>Add</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QPushButton" name="uiDeletePlace">
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2" colspan="2">
+        <widget class="QListWidget" name="uiPatronyms"/>
+       </item>
+       <item row="5" column="3">
+        <widget class="QPushButton" name="uiDeletePatronym">
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QPushButton" name="uiAddPatronym">
+         <property name="text">
+          <string>Add</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Place names</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="label_76">
+         <property name="text">
+          <string>Patronyms</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="uiDeleteMaleName">
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabPrivacy">
+      <attribute name="title">
+       <string>Printing Privacy</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QFrame" name="frame_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>2</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <item row="3" column="1">
+           <widget class="QComboBox" name="uiPrivacyPolicy3Method">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>270</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Show</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Details as ***. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name as initials. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hide all.</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_26">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>GedCom Policy 2 (Locked)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="3">
+           <widget class="QLabel" name="label_29">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>133</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Security rules for printing. Gedcom file format offers three security policies, but is scilent how to treat the data for each policy. Below, you can select how to treat data for each of the three policies. </string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_27">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>GedCom Policy 3 (Privacy)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_25">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>GedCom Policy 1 (Confidential)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="uiPrivacyPolicy1Method">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>270</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Show</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Details as ***. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name as initials. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hide all.</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="uiPrivacyPolicy2Method">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>270</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Show</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Details as ***. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name as initials. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hide all.</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_12" columnstretch="0,0,0,0,0,0,0,0,0,0,0,0,0">
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>2</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <item row="4" column="6" colspan="5">
+           <widget class="QLabel" name="label_39">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>years:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLabel" name="uiPrivacyLimit2max">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="6" colspan="5">
+           <widget class="QLabel" name="label_41">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>years:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="6" colspan="5">
+           <widget class="QLabel" name="label_40">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>years:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" rowspan="2" colspan="13">
+           <widget class="QLabel" name="label_30">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>133</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Age rules for public printing. Select below how do you want to print events and individuals of different ages. If you give 0 years, that rule will not be used. Dont give negative values.</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_36">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>from</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_37">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>from</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="11">
+           <widget class="QComboBox" name="uiPrivacyLimit1method">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>270</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Show</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Details as ***. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name as initials. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hide all.</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="6" column="11">
+           <widget class="QComboBox" name="uiPrivacyLimit3method">
+            <property name="minimumSize">
+             <size>
+              <width>270</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Show</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Details as ***. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name as initials. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hide all.</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="4" column="3">
+           <widget class="QLineEdit" name="uiPrivacyLimit1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_31">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>from</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="11">
+           <widget class="QComboBox" name="uiPrivacyLimit2method">
+            <property name="minimumSize">
+             <size>
+              <width>270</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Show</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Details as ***. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Show Name as initials. Hide details. Show gendre.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hide all.</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="6" column="3">
+           <widget class="QLineEdit" name="uiPrivacyLimit3">
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="3">
+           <widget class="QLineEdit" name="uiPrivacyLimit2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>25</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="uiPrivacyLimit1max">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLabel" name="uiPrivacyLimit3max">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QLabel" name="label_35">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>to </string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="2">
+           <widget class="QLabel" name="label_34">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>to </string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="2">
+           <widget class="QLabel" name="label_33">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>to </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="uiSave">
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="uiOk">
+       <property name="text">
+        <string>Ok</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="uiCancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>uiOk</sender>
+   <signal>clicked()</signal>
+   <receiver>uiSettings</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>362</x>
+     <y>432</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>261</x>
+     <y>226</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>uiCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>uiSettings</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>523</x>
+     <y>432</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>231</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

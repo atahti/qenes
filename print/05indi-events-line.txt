@@ -1,0 +1,8 @@
+<tr class="event">
+<td colspan="6">EVENT</td>
+<td colspan="12">PLACE</td>
+<td colspan="6">DATE WEEKDAY</td>
+<td colspan="4">AGE</td>
+<td colspan="12">VALUE</td>
+<td colspan="16">NOTES</td>
+</tr>

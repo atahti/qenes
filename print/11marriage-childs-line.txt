@@ -1,0 +1,10 @@
+<tr class="event">
+<td colspan="6">CHILD-ID</td>
+<td colspan="12">CHILD</td>
+<td colspan="6">BIRTH WEEKDAY</td>
+<td colspan="2">MAG</td>
+<td colspan="2">FAG</td>
+<td colspan="12">PLACE</td>
+<td colspan="2">DEATH</td>
+<td colspan="14">CHIL-NOTE</td>
+</tr>

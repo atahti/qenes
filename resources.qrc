@@ -1,0 +1,52 @@
+<RCC>
+    <qresource prefix="/">
+        <file>default.ini</file>
+        <file>print/03indi-notes.txt</file>
+        <file>print/04indi-events-title.txt</file>
+        <file>print/05indi-events-line.txt</file>
+        <file>print/07marriage-events-note.txt</file>
+        <file>print/08marriage-events-header.txt</file>
+        <file>print/09marriage-events-line.txt</file>
+        <file>print/10marriage-childs-title.txt</file>
+        <file>print/11marriage-childs-line.txt</file>
+        <file>print/12-0gp-familytree.txt</file>
+        <file>print/12-1gp-familytree.txt</file>
+        <file>print/12-2gp-familytree.txt</file>
+        <file>print/12-3gp-familytree.txt</file>
+        <file>print/12-4gp-familytree.txt</file>
+        <file>print/12-5gp-familytree.txt</file>
+        <file>print/12-footer-familytree.txt</file>
+        <file>print/12-header-familytree.txt</file>
+        <file>print/13footer.txt</file>
+        <file>print/calendar.html</file>
+        <file>print/familychart-old.html</file>
+        <file>print/letterlist.html</file>
+        <file>print/personlist.html</file>
+        <file>femalenames.ini</file>
+        <file>malenames.ini</file>
+        <file>patronyms.ini</file>
+        <file>places.ini</file>
+        <file>print/00header.txt</file>
+        <file>print/01tableheader.txt</file>
+        <file>print/06marriage-spouse.txt</file>
+        <file>print/index.html</file>
+        <file>print/00css-style.txt</file>
+        <file>print/15qenesbrowser.txt</file>
+        <file>print/style.css</file>
+        <file>print/qenes.jar</file>
+    </qresource>
+    <qresource prefix="/lang">
+        <file>lang/english.qm</file>
+        <file>lang/suomi.qm</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file>ui/benefits.png</file>
+        <file>ui/error.jpg</file>
+        <file>ui/qenes-icon.jpg</file>
+    </qresource>
+    <qresource prefix="/background">
+        <file>granular.gif</file>
+        <file>sandsb.gif</file>
+        <file>medsand.gif</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,9 @@
+<tr class="event-title">
+<td colspan="6">Event</td>
+<td colspan="12">Place</td>
+<td colspan="6">Date</td>
+<td colspan="2">Husb</td>
+<td colspan="2">Wife</td>
+<td colspan="12">Value</td>
+<td colspan="16">Notes</td>
+</tr>

@@ -1,0 +1,811 @@
+/* *
+ *  qenes genealogy software
+ *
+ *  Copyright (C) 2009-2010 Ari Tähti
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License veasion 2 as
+ *  published by the Free Software Foundation.
+ */
+
+
+#include "settings.h"
+#include <QInputDialog>
+#include <data/entry.h>
+#include <QSettings>
+#include <QMessageBox>
+#include <QDebug>
+#include "macro.h"
+#include "data/genedata.h"
+
+extern  QStringList      usrEvents, famEvents;
+extern  QSettings        sets;
+extern  QList<QString>  patronyms;
+extern  QList<QString>  boyNames;
+extern  QList<QString>  girlNames;
+extern  QList<QString>  places;
+
+QList<int> Settings::indiEventMap[28];
+QList<int> Settings::famiEventMap[12];
+
+void Settings::updatePrivacyLimitMaxValues()
+{
+    int v1 = uiPrivacyLimit1->text().toInt();
+    int v2 = uiPrivacyLimit2->text().toInt();
+    int v3 = uiPrivacyLimit3->text().toInt();
+
+    if (v1<0) { uiPrivacyLimit1->setText(0); v1=0; }
+    if (v2<0) { uiPrivacyLimit2->setText(0); v2=0; }
+    if (v3<0) { uiPrivacyLimit3->setText(0); v3=0; }
+
+    quint8 min = MIN3(v1, v2, v3);
+    quint8 mid = MID3(v1, v2, v3);
+    quint8 max = MAX3(v1, v2, v3);
+
+    quint8 r1, r2, r3;
+
+    if (v1 == max) r1 = mid;
+    else if (v1 == mid) r1 = min;
+    else r1 = 0;
+
+    if (v2 == max) r2 = mid;
+    else if (v2 == mid) r2 = min;
+    else r2 = 0;
+
+    if (v3 == max) r3 = mid;
+    else if (v3 == mid) r3 = min;
+    else r3 = 0;
+
+    uiPrivacyLimit1max->setText(QString::number(r1));
+    uiPrivacyLimit2max->setText(QString::number(r2));
+    uiPrivacyLimit3max->setText(QString::number(r3));
+}
+
+void Settings::makeEventMappings()
+{
+
+    // 0 = unlimited early day
+    // 1 = birth.... 27
+    // 28 = marriage
+    // 39 = this day
+    // 40 = unlimited max day
+    // 41 = any living day event
+    // 42 = buried (11) or chrematorized (12)
+
+    int event;
+    for (int type=1 ; type<28 ; type++ ) {
+        event = type;
+        do {
+            if (event < 27) event = GET_I_ENTRY_MIN(event); else event = GET_F_ENTRY_MIN(event-27);
+            indiEventMap[type].prepend(event);
+        } while (indiEventMap[type].size() < 42 && event !=0 && event != 39 && event != 40 && event != 41 && event != 42);
+
+        event = type;
+        indiEventMap[type].append(type);
+
+        do {
+            if (event < 27) event = GET_I_ENTRY_MAX(event); else event = GET_F_ENTRY_MAX(event-27);
+            indiEventMap[type].append(event);
+        } while (indiEventMap[type].size() < 42 && event !=0 && event !=1 && event != 39 && event != 40 && event != 41 && event != 42);
+
+        if (indiEventMap[type].size()>41) {
+            for (int i=0 ; i < indiEventMap[type].size() ; i++) qDebug() << indiEventMap[type].at(i);
+            QString message = "In settings, event " + Entry::typeString(type, true) + " and it's precending or appending events cause an infinite loop. For example : if confirmation should be after christening, christening after marriage, and marriage after confirmaion.";
+            QMessageBox qmb(QMessageBox::Critical, "Error", message, QMessageBox::Ok);
+            qmb.exec();
+            indiEventMap[type].clear();
+        }
+    }
+
+    for (int type=1 ; type<12 ; type++ ) {
+        event = type + 27;
+        do {
+            if (event < 27) event = GET_I_ENTRY_MIN(event); else event = GET_F_ENTRY_MIN(event-27);
+            famiEventMap[type].prepend(event);
+        } while (famiEventMap[type].size() < 42 && event !=0 && event !=1 && event != 39 && event != 40 && event != 41 && event != 42);
+
+        event = type + 27;
+        famiEventMap[type].append(type);
+
+        do {
+            if (event < 27) event = GET_I_ENTRY_MAX(event); else event = GET_F_ENTRY_MAX(event-27);
+            famiEventMap[type].append(event);
+        } while (famiEventMap[type].size() < 42 && event != 0 && event !=1 && event != 39 && event != 40 && event != 41 && event != 42);
+
+        if (famiEventMap[type].size()>41) {
+            for (int i=0 ; i < famiEventMap[type].size() ; i++) qDebug() << famiEventMap[type].at(i);
+            QString message = "In settings, event " + Entry::typeString(type, false) + " and it's precending or appending events cause an infinite loop. For example : if confirmation should be after christening, christening after marriage, and marriage after confirmaion.";
+            QMessageBox qmb(QMessageBox::Critical, "Error", message, QMessageBox::Ok);
+            qmb.exec();
+            famiEventMap[type].clear();
+        }
+    }
+}
+
+void Settings::makeDefaultValues()
+{
+    qDebug() << "make default values";
+    QSettings settings("default.ini", QSettings::IniFormat);
+
+    int type;
+    for (type=1 ; type<28 ; type++) {
+        settings.setValue(QString("indi/min/")+QString::number(type), GET_I_MIN(type) );
+        settings.setValue(QString("indi/cal/")+QString::number(type), GET_I_CAL(type) );
+        settings.setValue(QString("indi/max/")+QString::number(type), GET_I_MAX(type) );
+        settings.setValue(QString("indi/use/")+QString::number(type), GET_I_USE(type) );
+        settings.setValue(QString("indi/many/")+QString::number(type), GET_I_MANY(type) );
+        settings.setValue(QString("indi/entry/min/")+QString::number(type), GET_I_ENTRY_MIN(type));
+        settings.setValue(QString("indi/entry/max/")+QString::number(type), GET_I_ENTRY_MAX(type));
+        settings.setValue(QString("indi/print/")+QString::number(type), GET_I_PRINT(type));
+    }
+
+    for (type=1 ; type<12 ; type++) {
+        settings.setValue(QString("fam/min/")+QString::number(type), GET_F_MIN(type) );
+        settings.setValue(QString("fam/cal/")+QString::number(type), GET_F_CAL(type) );
+        settings.setValue(QString("fam/max/")+QString::number(type), GET_F_MAX(type) );
+        settings.setValue(QString("fam/use/")+QString::number(type), GET_F_USE(type) );
+        settings.setValue(QString("fam/many/")+QString::number(type), GET_F_MANY(type) );
+        settings.setValue(QString("fam/entry/min/")+QString::number(type), GET_F_ENTRY_MIN(type));
+        settings.setValue(QString("fam/entry/max/")+QString::number(type), GET_F_ENTRY_MAX(type));
+        settings.setValue(QString("fam/print/")+QString::number(type), GET_F_PRINT(type));
+    }
+
+    settings.setValue("timelimits", GET_EVENT_TIMELIMITDISABLED);
+    settings.setValue("ageBetweenIndi/motherChild/min", GET_AGE_MOTHERCHILD_MIN);
+    settings.setValue("ageBetweenIndi/motherChild/cal", GET_AGE_MOTHERCHILD_CAL);
+    settings.setValue("ageBetweenIndi/motherChild/max", GET_AGE_MOTHERCHILD_MAX);
+    settings.setValue("ageBetweenIndi/fatherChild/min", GET_AGE_FATHERCHILD_MIN);
+    settings.setValue("ageBetweenIndi/fatherChild/cal", GET_AGE_FATHERCHILD_CAL);
+    settings.setValue("ageBetweenIndi/fatherChild/max", GET_AGE_FATHERCHILD_MAX);
+    settings.setValue("ageBetweenIndi/spouses/min", GET_AGE_SPOUSES_MIN);
+    settings.setValue("ageBetweenIndi/spouses/caln", GET_AGE_SPOUSES_CAL);
+    settings.setValue("ageBetweenIndi/spouses/max", GET_AGE_SPOUSES_MAX);
+    settings.setValue("relationship/cousin3rd", GET_RELATION_COUSIN3);
+    settings.setValue("relationship/cousin2nd", GET_RELATION_COUSIN2);
+    settings.setValue("relationship/cousin", GET_RELATION_COUSIN);
+    settings.setValue("relationship/fatherUncle", GET_RELATION_FUNCLE);
+    settings.setValue("relationship/motherUnle", GET_RELATION_MUNCLE);
+    settings.setValue("relationship/aunt", GET_RELATION_AUNT);
+    settings.setValue("relationship/sibling", GET_RELATION_SIBLING);
+    settings.setValue("relationship/mother", GET_RELATION_MOTHER);
+    settings.setValue("relationship/father", GET_RELATION_FATHER);
+    settings.setValue("relationship/child", GET_RELATION_CHILD);
+    settings.setValue("relationship/cousin3rd/use", GET_RELATION_COUSIN3_USE);
+    settings.setValue("relationship/cousin2nd/use", GET_RELATION_COUSIN2_USE);
+    settings.setValue("relationship/fatherUncle/use", GET_RELATION_FUNCLE_USE);
+    settings.setValue("relationship/motherUnle/use", GET_RELATION_MUNCLE_USE);
+    settings.setValue("relationship/aunt/use", GET_RELATION_AUNT_USE);
+    settings.setValue("relationship/sibling/use", GET_RELATION_SIBLING_USE);
+    settings.setValue("relationship/child/use", GET_RELATION_CHILD_USE);
+    settings.setValue("names/suggestFamilyName", GET_SUGGEST_FAMILYNAME);
+    settings.setValue("names/suggestSex", GET_SUGGEST_SEX);
+    settings.setValue("print/print", GET_PRINT_WHAT);
+    settings.setValue("print/inclAncDec", GET_PRINT_ANCDEC);
+    settings.setValue("print/inclBothParents", GET_PRINT_BOTHPARENTS);
+    settings.setValue("print/inclPhoto", GET_PRINT_PHOTOS);
+
+    settings.setValue("privacy/autoage/1", s_privacyMethodAutoAge(1));
+    settings.setValue("privacy/autoage/2", s_privacyMethodAutoAge(2));
+    settings.setValue("privacy/autoage/3", s_privacyMethodAutoAge(3));
+
+    settings.setValue("privacy/auto/1", s_privacyMethodAuto(1));
+    settings.setValue("privacy/auto/2", s_privacyMethodAuto(2));
+    settings.setValue("privacy/auto/3", s_privacyMethodAuto(3));
+
+    settings.setValue("privacy/1", s_privacyMethod(1));
+    settings.setValue("privacy/2", s_privacyMethod(2));
+    settings.setValue("privacy/3", s_privacyMethod(3));
+
+    qDebug() << "make default values done";
+}
+
+void Settings::fromResourcetoFile(QString fileName) {
+    QFile file;
+    file.copy(QString(":/" + fileName), fileName);
+    file.setFileName(fileName);
+    file.setPermissions(QFile::ReadOwner|QFile::WriteOwner|QFile::ReadOther | QFile::WriteOther);
+}
+
+void Settings::resetSettings()
+{
+    // lataa defaultti setup arvot
+    QSettings settings(":/default.ini", QSettings::IniFormat);
+
+    int type;
+    for (type = 1 ; type<28 ; type++) {
+        SET_I_MIN(type, settings.value("indi/min/"+QString::number(type)));
+        SET_I_CAL(type, settings.value("indi/cal/"+QString::number(type)));
+        SET_I_MAX(type, settings.value("indi/max/"+QString::number(type)));
+        SET_I_USE(type, settings.value("indi/use/"+QString::number(type)));
+        SET_I_MANY(type, settings.value("indi/many/"+QString::number(type)));
+        SET_I_ENTRY_MIN(type, settings.value("indi/entry/min/"+QString::number(type)));
+        SET_I_ENTRY_MAX(type, settings.value("indi/entry/max/"+QString::number(type)));
+        SET_I_PRINT(type, settings.value("indi/print/" + QString::number(type)));
+    }
+
+    for (type = 1 ; type<12 ; type++) {
+        SET_F_MIN(type, settings.value("fam/min/"+QString::number(type)));
+        SET_F_CAL(type, settings.value("fam/cal/"+QString::number(type)));
+        SET_F_MAX(type, settings.value("fam/max/"+QString::number(type)));
+        SET_F_USE(type, settings.value("fam/use/"+QString::number(type)));
+        SET_F_MANY(type, settings.value("fam/many/"+QString::number(type)));
+        SET_F_ENTRY_MIN(type, settings.value("fam/entry/min/"+QString::number(type)));
+        SET_F_ENTRY_MAX(type, settings.value("fam/entry/max/"+QString::number(type)));
+        SET_F_PRINT(type, settings.value("fam/print/" + QString::number(type)));
+    }
+
+    SET_EVENT_TIMELIMITS(settings.value("timelimits"));
+    SET_AGE_FATHERCHILD_MIN(settings.value("ageBetweenIndi/fatherChild/min"));
+    SET_AGE_FATHERCHILD_CAL(settings.value("ageBetweenIndi/fatherChild/cal"));
+    SET_AGE_FATHERCHILD_MAX(settings.value("ageBetweenIndi/fatherChild/max"));
+    SET_AGE_MOTHERCHILD_MIN(settings.value("ageBetweenIndi/motherChild/min"));
+    SET_AGE_MOTHERCHILD_CAL(settings.value("ageBetweenIndi/motherChild/cal"));
+    SET_AGE_MOTHERCHILD_MAX(settings.value("ageBetweenIndi/motherChild/max"));
+    SET_AGE_SPOUSES_MIN(settings.value("ageBetweenIndi/spouses/min"));
+    SET_AGE_SPOUSES_CAL(settings.value("ageBetweenIndi/spouses/cal"));
+    SET_AGE_SPOUSES_MAX(settings.value("ageBetweenIndi/spouses/max"));
+    SET_ACC_ABT("yyyy");
+    SET_ACC_EST("MM.yyyy");
+    SET_ACC_CAL("MM.yyyy");
+    SET_ACC_BEF("dd.MM.yyyy");
+    SET_ACC_AFT("dd.MM.yyyy");
+    SET_ACC_EXA("dd.MM.yyyy");
+    SET_ACC_FRO("dd.MM.yyyy");
+    SET_RELATION_COUSIN3(settings.value("relationship/cousin3rd")); // *!*
+    SET_RELATION_COUSIN2(settings.value("relationship/cousin2nd"));
+    SET_RELATION_COUSIN(settings.value("relationship/cousin"));
+    SET_RELATION_FUNCLE(settings.value("relationship/fatherUncle"));
+    SET_RELATION_MUNCLE(settings.value("relationship/motherUnle"));
+    SET_RELATION_AUNT(settings.value("relationship/aunt"));
+    SET_RELATION_SIBLING(settings.value("relationship/sibling"));
+    SET_RELATION_MOTHER(settings.value("relationship/mother"));
+    SET_RELATION_FATHER(settings.value("relationship/father"));
+    SET_RELATION_CHILD(settings.value("relationship/child"));
+    SET_RELATION_COUSIN3_USE(settings.value("relationship/cousin3rd/use"));
+    SET_RELATION_COUSIN2_USE(settings.value("relationship/cousin2nd/use"));
+    SET_RELATION_COUSIN_USE(settings.value("relationship/cousin/use"));
+    SET_RELATION_FUNCLE_USE(settings.value("relationship/fatherUncle/use"));
+    SET_RELATION_MUNCLE_USE(settings.value("relationship/motherUnle/use"));
+    SET_RELATION_AUNT_USE(settings.value("relationship/aunt/use"));
+    SET_RELATION_SIBLING_USE(settings.value("relationship/sibling/use"));
+    SET_RELATION_CHILD_USE(settings.value("relationship/child/use"));
+    SET_ALLMINDAY(QDate(1200,1,1));
+    SET_ALLMAXDAY(QDate(2200, 1, 1));
+    SET_SUGGEST_FAMILYNAME(settings.value("names/suggestFamilyName"));
+    SET_SUGGEST_SEX(settings.value("names/suggestSex"));
+    //SET_PRINT_CHILDS((quint8)ch); *!*
+
+//#define GET_DIRECTORY           sets.value("fileDirectory").toString()
+
+    SET_PRINT_CHILDS(settings.value("print/inclChilds"));
+    SET_PRINT_EXC_OLD(settings.value("print/exclOlds"));
+    SET_PRINT_EXCLUDE_OLD_LIMIT(settings.value("print/exclOldLimit"));
+    SET_PRINT_WHAT(settings.value("print/print"));
+    SET_PRINT_PARENTS(settings.value("print/inclParents"));
+    SET_PRINT_ANCDEC(settings.value("print/inclAncDec"));
+    SET_PRINT_NUMBERING(settings.value("print/numbering"));
+    SET_PRINT_NOTES(settings.value("print/inclNotes"));
+    SET_PRINT_EXC_LIVINGS(settings.value("print/exclLivings"));
+    SET_PRINT_EVENTS(settings.value("print/inclEvents"));
+    SET_PRINT_BOTHPARENTS(settings.value("print/inclBothParents"));
+    SET_PRINT_PHOTOS(settings.value("print/inclPhoto"));
+    SET_PRINT_SOURCE(settings.value("print/inclSource"));
+//    SET_PRINT_EVENTCALENDAR(settings.value("print/inclEventCalendar"));
+
+    s_setPrivacyMethod(1, settings.value("privacy/1"));
+    s_setPrivacyMethod(2, settings.value("privacy/2"));
+    s_setPrivacyMethod(3, settings.value("privacy/3"));
+
+    s_setPrivacyMethodAuto(1, settings.value("privacy/auto/1"));
+    s_setPrivacyMethodAuto(2, settings.value("privacy/auto/2"));
+    s_setPrivacyMethodAuto(3, settings.value("privacy/auto/3"));
+
+    s_setPrivacyMethodAutoAge(1, settings.value("privacy/autoage/1"));
+    s_setPrivacyMethodAutoAge(2, settings.value("privacy/autoage/2"));
+    s_setPrivacyMethodAutoAge(3, settings.value("privacy/autoage/3"));
+
+    fromResourcetoFile("femalenames.ini");
+    fromResourcetoFile("malenames.ini");
+    fromResourcetoFile("patronyms.ini");
+    fromResourcetoFile("places.ini");
+
+
+}
+
+QString Settings::dateFormatString(int i)
+{
+    if (i == 0) return "yyyy";
+    if (i == 1) return "MM.yyyy";
+    if (i == 2) return "dd.MM.yyyy";
+    return "";    
+}
+
+void Settings::save()
+{
+    saveFromUitoRam();
+    saveFromRamToDisk();
+}
+
+void Settings::saveFromRamToDisk()
+{
+    int i;
+    QFile file;
+//qDebug() << "save";
+    qSort(boyNames.begin(), boyNames.end());
+    qSort(girlNames.begin(), girlNames.end());
+    qSort(places.begin(), places.end());
+
+    file.setFileName("malenames.ini");
+    file.remove();
+    //qDebug() << file.errorString();
+
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+        for (i=0 ; i<boyNames.size() ; i++) file.write( boyNames.at(i).toLatin1() + "\n");
+    file.close();
+
+    file.setFileName("femalenames.ini");
+    file.remove();
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+        for (i=0 ; i<girlNames.size() ; i++) file.write( girlNames.at(i).toLatin1() + "\n");
+    file.close();    
+
+    file.setFileName("places.ini");
+    file.remove();
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+        for (i=0 ; i<places.size() ; i++) file.write( places.at(i).toLatin1() + "\n");
+    file.close();
+
+    file.setFileName("patronyms.ini");
+    file.remove();
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+        for (i=0 ; i<patronyms.size() ; i++) file.write( patronyms.at(i).toLatin1() + "\n");
+    file.close();
+}
+
+void Settings::saveFromUitoRam()
+{
+    sets.setValue("acc/abt", dateFormatString(uiAbtFormat->currentIndex()));
+    sets.setValue("acc/aft", dateFormatString(uiAftFormat->currentIndex()));
+    sets.setValue("acc/bef", dateFormatString(uiBefFormat->currentIndex()));
+    sets.setValue("acc/cal", dateFormatString(uiCalFormat->currentIndex()));
+    sets.setValue("acc/est", dateFormatString(uiEstFormat->currentIndex()));
+    sets.setValue("acc/exa", dateFormatString(uiExaFormat->currentIndex()));
+    sets.setValue("acc/fro", dateFormatString(uiFroFormat->currentIndex()));
+
+    sets.setValue("relationship/cousin2nd", ui2ndCousin->text());
+    sets.setValue("relationship/cousin2nd/use", ui2ndCousinCheck->isChecked());
+    sets.setValue("relationship/cousin3rd", ui3rdCousin->text());
+    sets.setValue("relationship/cousin3rd/use", ui3rdCousinCheck->isChecked());
+    sets.setValue("relationship/aunt", uiAunt->text());
+    sets.setValue("relationship/aunt/use", uiAuntCheck->isChecked());
+    sets.setValue("relationship/child", uiChild->text());
+    sets.setValue("relationship/child/use", uiChildCheck->isChecked());
+    sets.setValue("relationship/cousin", uiCousin->text());
+    sets.setValue("relationship/cousin/use", uiCousinCheck->isChecked());
+    sets.setValue("relationship/father", uiFather->text());
+    sets.setValue("relationship/fatherUncle", uiFatherUncle->text());
+    sets.setValue("relationship/fatherUncle/use", uiFatherUncleCheck->isChecked());
+    sets.setValue("relationship/mother", uiMother->text());
+    sets.setValue("relationship/motherUncle", uiMotherUncle->text());
+    sets.setValue("relationship/motherUncle/use", uiMotherUncleCheck->isChecked());
+    sets.setValue("relationship/sibling", uiSister->text());
+    sets.setValue("relationship/sibling/use", uiSisterCheck->isChecked());
+
+    int i;
+
+    for (i=1 ; i<28 ; i++) {
+        SET_I_MIN(i, ((QSpinBox*)(findChild<QSpinBox *>( QString("uiAgeMinIndi" + QString::number(i)) )))->value());
+        SET_I_CAL(i, ((QSpinBox*)(findChild<QSpinBox *>( QString("uiAgeCalIndi" + QString::number(i)) )))->value());
+        SET_I_MAX(i, ((QSpinBox*)(findChild<QSpinBox *>( QString("uiAgeMaxIndi" + QString::number(i)) )))->value());
+        SET_I_MANY(i, ((QCheckBox*)(findChild<QCheckBox *>( QString( "uiManyIndi" + QString::number(i) ))))->isChecked());
+        SET_I_USE(i,        ((QCheckBox*)(findChild<QCheckBox *>( QString( "uiUseIndi"  + QString::number(i) ))))->isChecked());
+        SET_I_ENTRY_MIN(i,  ((QComboBox*)(findChild<QComboBox *>( QString( "uiEntryIndiLimitMin" + QString::number(i) ))))->currentIndex());
+        SET_I_ENTRY_MAX(i,  ((QComboBox*)(findChild<QComboBox *>( QString( "uiEntryIndiLimitMax" + QString::number(i) ))))->currentIndex());
+        SET_I_PRINT(i, ((QCheckBox*)(findChild<QCheckBox *>( QString( "uiPrintIndi" + QString::number(i) ))))->isChecked());
+    }
+
+    for (i=1 ; i<12 ; i++) {
+        SET_F_MIN(i, ((QSpinBox*)(findChild<QSpinBox *>( QString("uiAgeMinFam" + QString::number(i)) )))->value());
+        SET_F_CAL(i, ((QSpinBox*)(findChild<QSpinBox *>( QString("uiAgeCalFam" + QString::number(i)) )))->value());
+        SET_F_MAX(i, ((QSpinBox*)(findChild<QSpinBox *>( QString("uiAgeMaxFam" + QString::number(i)) )))->value());
+        SET_F_MANY(i, ((QCheckBox*)(findChild<QCheckBox *>( QString( "uiManyFam" + QString::number(i) ))))->isChecked());
+        SET_F_USE(i, ((QCheckBox*)(findChild<QCheckBox *>( QString( "uiUseFam"  + QString::number(i) ))))->isChecked());
+        SET_F_ENTRY_MIN(i,  ((QComboBox*)(findChild<QComboBox *>( QString( "uiEntryFamLimitMin" + QString::number(i) ))))->currentIndex());
+        SET_F_ENTRY_MAX(i,  ((QComboBox*)(findChild<QComboBox *>( QString( "uiEntryFamLimitMax" + QString::number(i) ))))->currentIndex());
+        SET_F_PRINT(i, ((QCheckBox*)(findChild<QCheckBox *>( QString( "uiPrintFam" + QString::number(i) ))))->isChecked());
+    }
+
+    sets.setValue("names/suggestFamilyName",    this->uiSuggestFamilyName->isChecked());
+    sets.setValue("names/suggestSex",           this->uiSuggestGenre->isChecked());
+
+    sets.setValue("ageBetweenIndi/motherChild/min", uiMotherChildMin->value());
+    sets.setValue("ageBetweenIndi/motherChild/max", uiMotherChildMax->value());
+    sets.setValue("ageBetweenIndi/fatherChild/min", uiFatherChildMin->value());
+    sets.setValue("ageBetweenIndi/fatherChild/max", uiFatherChildMax->value());
+
+    sets.setValue("ageBetweenIndi/spouses/min", uiSpouseWifeMin->value());
+    sets.setValue("ageBetweenIndi/spouses/max", uiSpouseWifeMax->value());
+
+    sets.setValue("allMinDay", QDate(uiAllMin->value(), 1, 1));
+    sets.setValue("allMaxDay", QDate(uiAllMax->value(), 1, 1));
+
+    s_setPrivacyMethod(1, uiPrivacyPolicy1Method->currentIndex());
+    s_setPrivacyMethod(2, uiPrivacyPolicy2Method->currentIndex());
+    s_setPrivacyMethod(3, uiPrivacyPolicy3Method->currentIndex());
+
+// tallenna tämä suuruusjärjestyksessä niin että 1 on suurin 2 on keskimmäinen ja 3 on pienin.
+// pidä järjestys samassa methodauto:n tallennuksessa
+    //quint8 min,mid,max;
+
+    quint8 minIndex, midIndex, maxIndex;
+    int aa,bb,cc;
+    aa = uiPrivacyLimit1->text().toInt();
+    bb = uiPrivacyLimit2->text().toInt();
+    cc = uiPrivacyLimit3->text().toInt();
+
+    if (aa == MIN3(aa,bb,cc)) {
+        minIndex = 1;
+        // min, ?, ?
+        if (bb == MIN(bb,cc)) { midIndex = 2 ; maxIndex = 3; } else { midIndex = 3 ; maxIndex = 2; }
+    } else if (aa == MID3(aa,bb,cc)) {
+        // mid, ?, ?
+        midIndex = 1;
+        if (bb == MIN(bb,cc)) { minIndex = 2 ; maxIndex = 3; } else { minIndex = 3 ; maxIndex = 2; }
+    } else {
+        // max, ?, ?
+        maxIndex = 1;
+        if (bb == MIN(bb,cc)) { minIndex = 2; midIndex = 3; } else { minIndex = 3; midIndex = 2; }
+    }
+
+    QString maxValue, midValue, minValue;
+    int maxIndexValue, midIndexValue, minIndexValue;
+
+    if (minIndex == 1) {
+        minValue = uiPrivacyLimit1->text();
+        minIndexValue = uiPrivacyLimit1method->currentIndex();
+    }
+
+    if (minIndex == 2) {
+        minValue = uiPrivacyLimit2->text();
+        minIndexValue = uiPrivacyLimit2method->currentIndex();
+    }
+
+    if (minIndex == 3) {
+        minValue = uiPrivacyLimit3->text();
+        minIndexValue = uiPrivacyLimit3method->currentIndex();
+    }
+
+    if (midIndex == 1) {
+        midValue = uiPrivacyLimit1->text();
+        midIndexValue = uiPrivacyLimit1method->currentIndex();
+    }
+
+    if (midIndex == 2) {
+        midValue = uiPrivacyLimit2->text();
+        midIndexValue = uiPrivacyLimit2method->currentIndex();
+    }
+
+    if (midIndex == 3) {
+        midValue = uiPrivacyLimit3->text();
+        midIndexValue = uiPrivacyLimit3method->currentIndex();
+    }
+
+    if (maxIndex == 1) {
+        maxValue = uiPrivacyLimit1->text();
+        maxIndexValue = uiPrivacyLimit1method->currentIndex();
+    }
+
+    if (maxIndex == 2) {
+        maxValue = uiPrivacyLimit2->text();
+        maxIndexValue = uiPrivacyLimit2method->currentIndex();
+    }
+
+    if (maxIndex == 3) {
+        maxValue = uiPrivacyLimit3->text();
+        maxIndexValue = uiPrivacyLimit3method->currentIndex();
+    }
+
+    s_setPrivacyMethodAutoAge(1, maxValue);
+    s_setPrivacyMethodAutoAge(2, midValue);
+    s_setPrivacyMethodAutoAge(3, minValue);
+
+    s_setPrivacyMethodAuto(1, maxIndexValue);
+    s_setPrivacyMethodAuto(2, midIndexValue);
+    s_setPrivacyMethodAuto(3, minIndexValue);
+
+    /*
+    s_setPrivacyMethodAutoAge(1, uiPrivacyLimit1->text());
+    s_setPrivacyMethodAutoAge(2, uiPrivacyLimit2->text());
+    s_setPrivacyMethodAutoAge(3, uiPrivacyLimit3->text());
+
+    s_setPrivacyMethodAuto(1, uiPrivacyLimit1method->currentIndex());
+    s_setPrivacyMethodAuto(2, uiPrivacyLimit2method->currentIndex());
+    s_setPrivacyMethodAuto(3, uiPrivacyLimit3method->currentIndex());
+*/
+
+    SET_EVENT_TIMELIMITS(uiDisableTimeLimits->isChecked());
+}
+
+void Settings::ok()
+{
+    saveFromUitoRam();
+}
+
+int Settings::dateFormatIndex(QString str)
+{
+    if (str == "yyyy") return 0;
+    if (str == "MM.yyyy") return 1;
+    if (str == "dd.MM.yyyy") return 2;
+    return 0;
+}
+
+void Settings::addFemaleName()
+{
+    QString input = QInputDialog::getText(this, "New Event", "Enter Family Event Type", QLineEdit::Normal);
+    if (!girlNames.contains(input) && input != "" ) {
+        girlNames.append(input);
+        updateNames();
+    }
+}
+
+void Settings::addMaleName()
+{
+    QString input = QInputDialog::getText(this, "New Event", "Enter Family Event Type", QLineEdit::Normal);
+    if (!boyNames.contains(input) && input != "" ) {
+        boyNames.append(input);
+        updateNames();
+    }
+}
+
+void Settings::addPlace()
+{
+    QString input = QInputDialog::getText(this, "New Event", "Enter Family Event Type", QLineEdit::Normal);
+    if (!places.contains(input) && input != "" ) {
+        places.append(input);
+        updateNames();
+    }
+}
+
+void Settings::deletePlace()
+{
+    int id = uiPlaces->currentRow();
+    if (id != -1 ) places.removeAt(id);
+    updateNames();
+}
+
+void Settings::addPatronym()
+{
+    QString input = QInputDialog::getText(this, "New Event", "Enter Family Event Type", QLineEdit::Normal);
+    if (!patronyms.contains(input) && input != "" ) {
+        patronyms.append(input);
+        updateNames();
+    }
+}
+
+void Settings::deletePatronym()
+{
+    int id = uiPatronyms->currentRow();
+    if (id != -1 ) patronyms.removeAt(id);
+    updateNames();
+}
+
+void Settings::deleteFemaleName()
+{
+    int id = uiFemaleNames->currentRow();
+    if (id != -1 ) girlNames.removeAt(id);
+    updateNames();
+}
+
+void Settings::deleteMaleName()
+{
+    int id = uiMaleNames->currentRow();
+    if (id != -1 ) boyNames.removeAt(id);
+    updateNames();
+}
+
+void Settings::addFamEvent()
+{
+    QString input = QInputDialog::getText(this, "New Event", "Enter Family Event Type", QLineEdit::Normal);
+    if (!famEvents.contains(input)) {
+        famEvents.append(input);
+        updateUsrEvents();
+    }
+}
+
+void Settings::addIndiEvent()
+{
+    QString input = QInputDialog::getText(this, "New Event", "Enter Individual Event Type", QLineEdit::Normal);
+    if (!usrEvents.contains(input)) {
+        usrEvents.append(input);
+        updateUsrEvents();
+    }
+}
+
+
+void Settings::updateUsrEvents()
+{
+    uiIndiUsrAttr->clear();
+    uiFamUsrAttr->clear();
+
+    int i;
+    for (i=0 ; i<usrEvents.size() ; i++) {
+        QListWidgetItem *listItem = new QListWidgetItem;
+        listItem->setText(usrEvents.at(i));
+        uiIndiUsrAttr->addItem(listItem);
+    }
+
+    for (i=0 ; i<famEvents.size() ; i++) {
+        QListWidgetItem *listItem = new QListWidgetItem;
+        listItem->setText(famEvents.at(i));
+        uiFamUsrAttr->addItem(listItem);
+    }
+}
+
+void Settings::updateNames()
+{
+    uiMaleNames->clear();
+    uiFemaleNames->clear();
+    uiPlaces->clear();
+    uiPatronyms->clear();
+
+    qSort(boyNames.begin(), boyNames.end());
+    qSort(girlNames.begin(), girlNames.end());
+    qSort(places.begin(), places.end());
+    qSort(patronyms.begin(), patronyms.end());
+
+    int i;
+    for (i=0 ; i<boyNames.size() ; i++ ) {
+        QListWidgetItem *listItem = new QListWidgetItem;
+        listItem->setText(boyNames.at(i));
+        uiMaleNames->addItem(listItem);
+    }
+
+    for (i=0 ; i<girlNames.size() ; i++ ) {
+        QListWidgetItem *listItem = new QListWidgetItem;
+        listItem->setText(girlNames.at(i));
+        uiFemaleNames->addItem(listItem);
+    }
+
+    for (i=0 ; i<places.size() ; i++) {
+        QListWidgetItem *listItem = new QListWidgetItem;
+        listItem->setText(places.at(i));
+        uiPlaces->addItem(listItem);
+    }
+
+    for (i=0 ; i<patronyms.size() ; i++) {
+        QListWidgetItem *listItem = new QListWidgetItem;
+        listItem->setText(patronyms.at(i));
+        uiPatronyms->addItem(listItem);
+    }
+}
+
+
+Settings::Settings(quint8 sTab, QWidget * parent) : QDialog(parent)
+{
+    startTab = sTab;
+
+    setupUi(this);
+
+
+    uiAbtFormat->setCurrentIndex(dateFormatIndex(GET_ACC_ABT));
+    uiEstFormat->setCurrentIndex(dateFormatIndex(GET_ACC_EST));
+    uiCalFormat->setCurrentIndex(dateFormatIndex(GET_ACC_CAL));
+    uiBefFormat->setCurrentIndex(dateFormatIndex(GET_ACC_BEF));
+    uiAftFormat->setCurrentIndex(dateFormatIndex(GET_ACC_AFT));
+    uiExaFormat->setCurrentIndex(dateFormatIndex(GET_ACC_EXA));
+    uiFroFormat->setCurrentIndex(dateFormatIndex(GET_ACC_FRO));
+
+    ui2ndCousin->setText(GET_RELATION_COUSIN2);
+    ui2ndCousinCheck->setChecked(GET_RELATION_COUSIN2_USE);
+    ui3rdCousin->setText(GET_RELATION_COUSIN3);
+    ui3rdCousinCheck->setChecked(GET_RELATION_COUSIN3_USE);
+    uiAunt->setText(GET_RELATION_AUNT);
+    uiAuntCheck->setChecked(GET_RELATION_AUNT_USE);
+    uiChild->setText(GET_RELATION_CHILD);
+    uiChildCheck->setChecked(GET_RELATION_CHILD_USE);
+    uiCousin->setText(GET_RELATION_COUSIN);
+    uiCousinCheck->setChecked(GET_RELATION_COUSIN_USE);
+    uiFather->setText(GET_RELATION_FATHER);
+    uiFatherUncle->setText(GET_RELATION_FUNCLE);
+    uiFatherUncleCheck->setChecked(GET_RELATION_FUNCLE_USE);
+    uiMother->setText(GET_RELATION_MOTHER);
+    uiMotherUncle->setText(GET_RELATION_MUNCLE);
+    uiMotherUncleCheck->setChecked(GET_RELATION_MUNCLE_USE);
+    uiSister->setText(GET_RELATION_SIBLING);
+    uiSisterCheck->setChecked(GET_RELATION_SIBLING_USE);
+
+    int i;
+
+    this->orderString << "(unlimited=>)";
+    for (i=1 ; i<28 ; i++) orderString << Entry::typeString(i, true);
+    for (i=1 ; i<12 ; i++) orderString << Entry::typeString(i, false);
+    orderString << "(today)";
+    orderString << "(=>unlimited)";
+    orderString << "(while living)";
+    orderString << "Buried or Chrematorized";
+    orderModel.setStringList(orderString);
+
+    for (i=1 ; i<28 ; i++) {
+        //qDebug() << i << Entry::typeString(i, true);
+        ((QLabel*)   (findChild<QLabel *>   (  QString("uiIndiLabel"   + QString::number(i)))))->setText(Entry::typeString(i, true));
+        ((QCheckBox*)(findChild<QCheckBox *>(  QString("uiUseIndi"    + QString::number(i)))))->setChecked(GET_I_USE(i));
+        ((QCheckBox*)(findChild<QCheckBox *>(  QString("uiManyIndi"   + QString::number(i)))))->setChecked(GET_I_MANY(i));
+        ((QSpinBox*)(findChild<QSpinBox*> (  QString("uiAgeMinIndi" + QString::number(i)))))->setValue(GET_I_MIN(i));
+        ((QSpinBox*)(findChild<QSpinBox*> (  QString("uiAgeCalIndi" + QString::number(i)))))->setValue(GET_I_CAL(i));
+        ((QSpinBox*)(findChild<QSpinBox*> (  QString("uiAgeMaxIndi" + QString::number(i)))))->setValue(GET_I_MAX(i));
+        ((QComboBox*)(findChild<QComboBox*> (  QString("uiEntryIndiLimitMin" + QString::number(i)))))->setModel(&orderModel);
+        ((QComboBox*)(findChild<QComboBox*> (  QString("uiEntryIndiLimitMax" + QString::number(i)))))->setModel(&orderModel);
+        ((QComboBox*)(findChild<QComboBox*> (  QString("uiEntryIndiLimitMin" + QString::number(i)))))->setCurrentIndex(GET_I_ENTRY_MIN(i));
+        ((QComboBox*)(findChild<QComboBox*> (  QString("uiEntryIndiLimitMax" + QString::number(i)))))->setCurrentIndex(GET_I_ENTRY_MAX(i));
+        ((QCheckBox*)(findChild<QCheckBox*> (  QString("uiPrintIndi" + QString::number(i)))))->setChecked(GET_I_PRINT(i));
+    }
+
+    for (i=1 ; i<12 ; i++) {
+        ((QLabel*)   (findChild<QLabel *>   (  QString("uiFamLabel"   + QString::number(i)))))->setText(Entry::typeString(i, false));
+        ((QCheckBox*)(findChild<QCheckBox*> (  QString("uiUseFam"    + QString::number(i)))))->setChecked(GET_F_USE(i));
+        ((QCheckBox*)(findChild<QCheckBox*> (  QString("uiManyFam"   + QString::number(i)))))->setChecked(GET_F_MANY(i));
+        ((QSpinBox*) (findChild<QSpinBox*>  (  QString("uiAgeMinFam" + QString::number(i)))))->setValue(GET_F_MIN(i));
+        ((QSpinBox*) (findChild<QSpinBox*>  (  QString("uiAgeCalFam" + QString::number(i)))))->setValue(GET_F_CAL(i));
+        ((QSpinBox*) (findChild<QSpinBox*>  (  QString("uiAgeMaxFam" + QString::number(i)))))->setValue(GET_F_MAX(i));
+        ((QComboBox*)(findChild<QComboBox*> (  QString("uiEntryFamLimitMin" + QString::number(i)))))->setModel(&orderModel);
+        ((QComboBox*)(findChild<QComboBox*> (  QString("uiEntryFamLimitMax" + QString::number(i)))))->setModel(&orderModel);
+        ((QComboBox*)(findChild<QComboBox*> (  QString("uiEntryFamLimitMin" + QString::number(i)))))->setCurrentIndex(GET_F_ENTRY_MIN(i));
+        ((QComboBox*)(findChild<QComboBox*> (  QString("uiEntryFamLimitMax" + QString::number(i)))))->setCurrentIndex(GET_F_ENTRY_MAX(i));
+        ((QCheckBox*)(findChild<QCheckBox*> (  QString("uiPrintFam" + QString::number(i)))))->setChecked(GET_F_PRINT(i));
+    }
+
+    this->uiSpouseWifeMax->setValue(GET_AGE_SPOUSES_MAX);
+    this->uiSpouseWifeMin->setValue(GET_AGE_SPOUSES_MIN);    
+    this->uiMotherChildMin->setValue(GET_AGE_MOTHERCHILD_MIN);
+    this->uiMotherChildMax->setValue(GET_AGE_MOTHERCHILD_MAX);
+    this->uiFatherChildMin->setValue(GET_AGE_FATHERCHILD_MIN);
+    this->uiFatherChildMax->setValue(GET_AGE_FATHERCHILD_MAX);
+    this->uiAllMin->setValue(GET_ALLMINDAY.year());
+    this->uiAllMax->setValue(GET_ALLMAXDAY.year());    
+
+    this->uiSuggestFamilyName->setChecked(GET_SUGGEST_FAMILYNAME);
+    this->uiSuggestGenre->setChecked(GET_SUGGEST_SEX);
+
+    this->uiDisableTimeLimits->setChecked(GET_EVENT_TIMELIMITDISABLED);
+
+    uiPrivacyLimit1->setText(QString::number(s_privacyMethodAutoAge(1)));
+    uiPrivacyLimit2->setText(QString::number(s_privacyMethodAutoAge(2)));
+    uiPrivacyLimit3->setText(QString::number(s_privacyMethodAutoAge(3)));
+
+    uiPrivacyLimit1method->setCurrentIndex(s_privacyMethodAuto(1));
+    uiPrivacyLimit2method->setCurrentIndex(s_privacyMethodAuto(2));
+    uiPrivacyLimit3method->setCurrentIndex(s_privacyMethodAuto(3));
+
+    setFont(GeneData::panelFont);
+
+    updateUsrEvents();
+    updateNames();
+
+    connect(uiOk, SIGNAL(clicked()), this, SLOT(ok()));
+    connect(uiSave, SIGNAL(clicked()), this, SLOT(save()));
+    connect(uiIndiAttrAdd, SIGNAL(clicked()), this, SLOT(addIndiEvent()));
+    connect(uiFamAttrAdd, SIGNAL(clicked()), this, SLOT(addFamEvent()));
+
+    connect(uiAddFemaleName, SIGNAL(clicked()), this, SLOT(addFemaleName()));
+    connect(uiAddMaleName, SIGNAL(clicked()), this, SLOT(addMaleName()));
+    connect(uiAddPlace, SIGNAL(clicked()), this, SLOT(addPlace()));
+    connect(uiAddPatronym, SIGNAL(clicked()), this, SLOT(addPatronym()));
+
+    connect(uiDeleteFemaleName, SIGNAL(clicked()), this, SLOT(deleteFemaleName()));
+    connect(uiDeleteMaleName, SIGNAL(clicked()), this, SLOT(deleteMaleName()));
+    connect(uiDeletePlace, SIGNAL(clicked()), this, SLOT(deletePlace()));
+    connect(uiDeletePatronym, SIGNAL(clicked()), this, SLOT(deletePatronym()));
+
+    connect(uiPrivacyLimit1, SIGNAL(textEdited(QString)), this, SLOT(updatePrivacyLimitMaxValues()));
+    connect(uiPrivacyLimit2, SIGNAL(textEdited(QString)), this, SLOT(updatePrivacyLimitMaxValues()));
+    connect(uiPrivacyLimit3, SIGNAL(textEdited(QString)), this, SLOT(updatePrivacyLimitMaxValues()));
+
+    uiPrivacyPolicy1Method->setCurrentIndex(s_privacyMethod(1));
+    uiPrivacyPolicy2Method->setCurrentIndex(s_privacyMethod(2));
+    uiPrivacyPolicy3Method->setCurrentIndex(s_privacyMethod(3));
+
+    tabWidget->setCurrentIndex(startTab);
+
+
+    updatePrivacyLimitMaxValues();
+ }

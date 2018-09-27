@@ -1,0 +1,6 @@
+<html>
+
+<applet archive="qenesBrower.jar" code="ui/qapplet.class" width=1300 height=768> 
+</applet>
+
+</html>

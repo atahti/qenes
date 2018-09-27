@@ -1,0 +1,56 @@
+GENE sukuolion luominen
+
+1) kutsutaan mainwindow::filenew. CurrentGd, gdcount, gdLastused = 0
+
+2) kutsutaan mainwindow::gdspace(tila). Varmistetaan ett‰ taulukossa on riitt‰v‰sti tilaa.
+
+tarkasta toimiiko auto age privacy jos j‰rjestys muuttuu settinseiss‰
+
+bugit:
+- latauksessa : jos on cont (ja tyhj‰) teksti‰ ladatessa, siihen tulee enter
+- varmista onko oikein, jos luo henkilˆn jolla on lapsi mutta ei puolisoa, n‰ytt‰isi famSListiin tulevan uuden perheen numero. Pit‰‰kˆ?
+- kun lataa nykyisen tiedoston p‰‰‰lle esim l, kaatu
+- print : v‰rien kopiointi pois
+- mit‰‰n mit‰ tulostetaan ei saa olla < eik‰ >
+- INSERT_STYLE_HERE on ehk‰ turha jos sen voi embeddata headeriin, samlalla 00css style pois
+- new file => paste )> tulee tuplana. paste as new file toimii.
+- jos tiedostonimess‰ space, dir menee v‰‰rin
+
+
+kauneusvirheet:
+- testaa toimiiko puolison assignaaminen (my‰s cancel niin ett‰ database on ehj‰)
+- varoitukset
+
+hauska mutta hy‰dyt‰n korjaus:
+- submitterit
+
+Uusia fiitsereit‰:
+- uudet gedcom tagit
+- tulostukseen ongelmalista
+- tulostukseen viimeksi muutetut
+- Database search n‰kym‰‰n lis‰‰ toimintoja, esim ammatti jossain paikassa
+- p‰‰ikkunaan back-nappula (pist‰ vaikka anoppinapulan tilalle)
+- undo
+- OSM kartat
+- Muuttonuolet
+- Sellainen arvioitus syntym‰, joka laskee fiksusti my‰s before ja after arvoista estimated birthin
+
+
+DOCUMENTAATIOTA
+
+Privacy method : se menetelm‰, jonka k‰ytt‰j‰ on asettanut printtaukseen. Tyypin PRIVACY_METHOD arvot on
+
+    PRIVACY_0_SHOW, PRIVACY_1_BLUR_DETAILS, PRIVACY_2_HIDE_DETAILS, PRIVACY_3_BLUR_NAME, PRIVACY_4_HIDE
+
+effectivePrivacyMethod on se privacyMethod, jota todellisuudessa k‰ytet‰‰n printtauksessa. Printtaus voidaan tehd‰ eri printPolicyll‰ (kts alla) joita on 1) kaikki 2) sukututkijoille tai 3) julkinen.
+
+PPOLICY { PRINTPOLICY_1_EVERYTHING, PRINTPOLICY_2_GENE, PRINTPOLICY_3_PUBLIC, PRINTPOLICY_4_ALL };
+
+Jos esim printPolicy on "kaikki", on privacyMethod aina PRIVACY_0_SHOW. Jos printPolicy on "sukututkijoille" k‰ytet‰‰n niit‰ privacy arvoja joita gedcom tiedoston SEC attribuutit kertovat. Jos printPolicy on "public", tutkitaan lis‰ksi tapahtuman ik‰‰ ja asetetaan sen mukana lis‰rajoituksia. Lis‰ksi, jos julkisessa tulostuksessa henkil‰ on hengiss‰, asetetaan lis‰rajoituksia privacyyn.
+
+PrivacyPolicy on k‰ytt‰j‰n k‰sin antama arvo (tyypilt‰‰n int), joka vastaa gedcomin arvoja. N‰it‰ arvoja voidaan antaa INDI, FAM tai entry tiedoille.
+
+gedcom      privacyPolicy
+"conf"      1
+"locked""   2
+privacy"    3
