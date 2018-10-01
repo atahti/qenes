@@ -2,7 +2,7 @@
  *
  *  qenes genealogy software
  *
- *  Copyright (C) 2009-2010 Ari Tähti
+ *  Copyright (C) 2009-2018 Ari Tähti
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License veasion 2 as

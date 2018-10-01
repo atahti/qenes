@@ -111,6 +111,7 @@ QString Reporter::addMultimedia(MultiMedia mm, QString dirName)
     return result;
 }
 
+
 QString Reporter::makeIndex()
 {
 // lataa pohja
@@ -319,7 +320,7 @@ QString Reporter::makeLink(QString name, quint16 id, QList<int> *tables)
     //      LINK_A joko # tai ""
     //      LINK_B joko "" tai .html
     if (tables->contains(id)) return "<a href=\"LINK_A" + QString("%1").arg(QString::number(id), 5, '0') + "LINK_B\">"+ name + "</a>"; else return name;
-    //if (tables->contains(id)) return "<a href=\"" + fileName(id) + "\">"+ name + "</a>"; else return name;
+
 }
 
 void Reporter::wwwReplacer(QString str, quint16 id, QString *tree, QList<int> *tables)
@@ -333,7 +334,7 @@ void Reporter::wwwReplacer(QString str, quint16 id, QString *tree, QList<int> *t
     if (id>0) {
         QString output;
 
-        tree->replace(name, makeLink(PINDI(id).printName(PINDI(id).printNameFamily() + " " + PINDI(id).printName1()), id, tables));
+        tree->replace(name, makeLink(PINDI(id).printName(PINDI(id).printNameFamily()) + " " + PINDI(id).printName1(), id, tables));
 
         output = PINDI(id).ientry(BIRTH).printDay();
 
@@ -773,14 +774,14 @@ QString Reporter::makeHtmlFamilyEventChildren(quint16 p, quint16 f)
 
                 // child name
 
-                childName = PINDI(child).printName123Family();//.printNameFamily() + " " + PINDI(child).printName1() + " " + PINDI(child).printName2() + " " + PINDI(child).printName3();
+                childName = PINDI(child).printName123Family();
                 childName = makeLink(childName, child, &tables);
                 currentPerson.replace("CHILD", childName);
 
                 if (PINDI(child).publishable()) {
                     currentPerson.replace("BIRTH", PINDI(child).ientry(BIRTH).printDay());
                     currentPerson.replace("WEEKDAY", PINDI(child).ientry(BIRTH).printWeekday());
-                    currentPerson.replace("PLACE", PINDI(child).ientry(BIRTH).printPlace());
+                    currentPerson.replace("PLACE", INDI(child).ientry(BIRTH).printPlace());
                     currentPerson.replace("CHIL-NOTE", PINDI(child).printNote());
 
                     if (PINDI(child).effectivePrivacyMethod() == PRIVACY_0_SHOW) {
@@ -889,7 +890,6 @@ QString Reporter::makeHtmlDescentantTable(quint16 i)
         output.replace(row, QString::number(rivit.at(i)));
 
         output.replace(name, makeLink(PINDI(hlot.at(i)).printNameFamily1(), hlot.at(i), &tables));
-        //output.replace(name, makeLink(PINDI(hlot.at(i)).printNameFamily() + " " + PINDI(hlot.at(i)).printName1(), hlot.at(i), &tables));
 
         if (INDI(hlot.at(i)).effectivePrivacyMethod() == PRIVACY_4_HIDE) output.replace(color, "#cccccc"); else {
             if (INDI(hlot.at(i)).sex == MALE) output.replace(color, "#ccffff");
@@ -1340,7 +1340,8 @@ void Reporter::makeReport()
         QString fileName = *pDirName + "/index.html";
         QFile file(fileName);
         file.open(QIODevice::WriteOnly|QIODevice::Text);
-        file.write(header00.toLatin1() + makeIndex().toLatin1() + footer13.toLatin1());
+
+        file.write(header00.toUtf8() + makeIndex().toUtf8() + footer13.toUtf8());
 
         QString out = "Root persons: <BR><BR>";
 
@@ -1369,19 +1370,17 @@ void Reporter::makeReport()
                     }
                 } while (x2 && !PINDI(x2).usedInRootList);
 
-                //out += tableId(tmpId, &tables) + " " + PINDI(tmpId).getShortFamilyRelation() + " " + makeLink(name, rootID.at(x), &tables) + "<br>";
-                //out += name + "<br><br>";
                 out += makeLink(name, rootID.at(x), &tables)  + "<br><br>" ;
-                //out += tableId(tmpId, &tables) + " " + name + " " + makeLink(name, rootID.at(x), &tables) + "<br>";
+
             }
         }
         out.replace("LINK_A", "");
         out.replace("LINK_B", ".html");
-        file.write(out.toLatin1());
+        file.write(out.toUtf8());
         file.close();
     }
 
-    output += makeIndex().toLatin1();
+    output += makeIndex().toUtf8();
     output += "\n<br><br><br>\n";
 
     // -------------------------------------------------------------------------------------
@@ -1434,7 +1433,7 @@ void Reporter::makeReport()
             //      LINK_B joko "" tai .html
 
             thisPerson += "<br><br><small><small>&copy " + GENE.subm.name + "</small></small>" + footer13;
-            file.write(thisPerson.toLatin1());
+            file.write(thisPerson.toUtf8());
             file.close();
         }
 
@@ -1496,7 +1495,8 @@ void Reporter::makeReport()
     QString fileName = *pDirName + "/" + "events.html";
     file.setFileName(fileName);
     file.open(QIODevice::WriteOnly|QIODevice::Text);
-    file.write(header00.toLatin1() + events.toLatin1() + footer13.toLatin1());
+    file.write(header00.toUtf8() + events.toUtf8() + footer13.toUtf8());
+
     file.close();
 
     {
@@ -1561,7 +1561,8 @@ void Reporter::makeReport()
             output3.replace("LINK_B", ".html");
             output3 += "<br><br><small><small>&copy " + GENE.subm.name;
             //output3 += footer13;
-            file.write( header00.toLatin1() + output3.toLatin1() + footer13.toLatin1());
+            file.write( header00.toUtf8() + output3.toUtf8() + footer13.toUtf8());
+
             file.close();
 
         }
@@ -1583,7 +1584,7 @@ void Reporter::makeReport()
         //output2.replace("INSERT_STYLE_HERE", style00);
         output2.replace("INSERT_BORDER_HERE", "");
         output2.replace("CELLCOLOR", COLOR_PRINTYELLOW);
-        file2.write(output2.toLatin1());
+        file2.write(output2.toUtf8());
         file2.close();
         emit (sigStatusBarMessage("Html file done."));
     }
