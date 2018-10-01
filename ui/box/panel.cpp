@@ -1,3 +1,5 @@
+/* This is proprietary software. All rights reserved.*/
+
 #include "panel.h"
 #include "data/genedata.h"
 #include "ui/person.h"
