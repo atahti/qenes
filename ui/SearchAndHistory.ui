@@ -70,7 +70,7 @@
     </widget>
    </item>
    <item row="0" column="3" colspan="2">
-    <widget class="QPushButton" name="uiMotherInLaw">
+    <widget class="QPushButton" name="uiShowDescentants">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -89,8 +89,8 @@
       </font>
      </property>
      <property name="text">
-      <string>Goto
-mother-in law</string>
+      <string>Show all 
+descentants</string>
      </property>
     </widget>
    </item>

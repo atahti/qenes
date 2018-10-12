@@ -26,7 +26,7 @@
 #include "dbview2.h"
 #include "data/date.h"
 #include "sourceview.h"
-#include "ui/descendants.h"
+//#include "ui/descendants.h"
 
 #include <QMetaEnum>
 #include <QRegExp>
@@ -179,32 +179,7 @@ void MainWindow::debug1()
     Descendants d(&id);
 
     d.exec();
-    */
-//    qDebug() << INDI(1341).estimatedBirth << INDI(1341).getEntryDaybyType(true, BIRTH);
-
-    //----------------------------
-    //    xxxxxxxxxxxx
-    //
-    /*x
-    Date date1;
-    date1.setDate1(1846,1,1);
-    date1.setAcc(ABT);
-
-    Date date2;
-    date2.setDate1(1846,12,1);
-    date2.setAcc(EXA);
-
-    qDebug() << (date1 < date2);
-    qDebug() << (date1 > date2);
-    */
-
-    qDebug() << GET_ACC_ABT;
-    qDebug() << GET_ACC_CAL;
-    qDebug() << GET_ACC_EST;
-    qDebug() << GET_ACC_BEF;
-    qDebug() << GET_ACC_AFT;
-    qDebug() << GET_ACC_EXA;
-    qDebug() << GET_ACC_FRO;
+  */
 }
 
 QString MainWindow::getFileEnd(QString fileName)

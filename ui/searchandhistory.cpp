@@ -2,6 +2,7 @@
 #include "macro.h"
 #include "data/genedata.h"
 
+
 extern  GeneData        * geneData;
 
 void BrowseHistoryModel::updt()
@@ -70,8 +71,9 @@ Qt::ItemFlags BrowseHistoryModel::flags(const QModelIndex &index) const
 
 void SearchAndHistory::updt()
 {
-    if ( INDI(GENE.currentId).getMotherInLaw()) this->uiMotherInLaw->setEnabled(true);
+    /*if ( INDI(GENE.currentId).getMotherInLaw()) this->uiMotherInLaw->setEnabled(true);
     else this->uiMotherInLaw->setEnabled(false);
+*/
 
     if ( GENE.indiLastUsed != 0) this->ui1st->setEnabled(true);
     else this->ui1st->setEnabled(false);
@@ -94,7 +96,7 @@ SearchAndHistory::SearchAndHistory(QFrame *parent) : QFrame(parent)
     browseModel = new BrowseHistoryModel;
 
     connect(ui1st,              SIGNAL(clicked()),       this, SLOT(slot1st()));
-    connect(uiMotherInLaw,      SIGNAL(clicked()),       this, SLOT(slotMotherinlaw()));
+    connect(uiShowDescentants,  SIGNAL(clicked()),       this, SLOT(showDescentants()));
     connect(uiClear,            SIGNAL(clicked()),       this, SLOT(slotClear()));
     connect(uiSearch,           SIGNAL(clicked()),       this, SLOT(slotSearch()));
     connect(uiLastClicked,      SIGNAL(clicked(QModelIndex)), this, SLOT(browseHistoryClicked(QModelIndex)));
@@ -113,11 +115,19 @@ void SearchAndHistory::slot1st()
     else emit update(1);
 }
 
-void SearchAndHistory::slotMotherinlaw()
-{
-    quint16 mil = INDI(GENE.currentId).getMotherInLaw();
 
-    if (mil) emit update(mil);
+
+void SearchAndHistory::showDescentants()
+{
+    quint16 id=GENE.currentId;
+
+    Descendants d(&id);
+
+    d.exec();
+
+    //quint16 mil = INDI(GENE.currentId).getMotherInLaw();
+
+    //if (mil) emit update(mil);
 }
 
 void SearchAndHistory::slotSearch()

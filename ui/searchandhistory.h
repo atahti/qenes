@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "ui_SearchAndHistory.h"
+#include "descendants.h"
 
 class BrowseHistoryModel : public QAbstractTableModel
 {
@@ -34,7 +35,7 @@ private slots:
     void            slot1st();
     void            slotSearch();
     void            slotClear();
-    void            slotMotherinlaw();
+    void            showDescentants();
     void            browseHistoryClicked(QModelIndex);
 
 signals:
