@@ -782,10 +782,14 @@ void Person::save()
 // ------------------------- fams, famc, busb, wife data is ok, lets fill the persondata table --------------
 
     QRegExp spaceRemove("(\\S+)");
-    spaceRemove.indexIn(uiName1st->text()) ; INDI(id).nameFirst = spaceRemove.cap(1);
-    spaceRemove.indexIn(uiName2nd->text()) ; INDI(id).name2nd = spaceRemove.cap(1);
-    spaceRemove.indexIn(uiName3rd->text()) ; INDI(id).name3rd = spaceRemove.cap(1);
-    spaceRemove.indexIn(uiNameFamily->text()) ; INDI(id).nameFamily = spaceRemove.cap(1);
+	
+    //spaceRemove.indexIn(uiName1st->text()) ; INDI(id).nameFirst = spaceRemove.cap(1);
+    //spaceRemove.indexIn(uiName2nd->text()) ; INDI(id).name2nd = spaceRemove.cap(1);
+    //spaceRemove.indexIn(uiName3rd->text()) ; INDI(id).name3rd = spaceRemove.cap(1);
+    INDI(id).nameFirst = uiName1st->text().replace(" ","_");
+	INDI(id).name2nd = uiName2nd->text().replace(" ","_");
+	INDI(id).name3rd = uiName3rd->text().replace(" ","_");
+	spaceRemove.indexIn(uiNameFamily->text()) ; INDI(id).nameFamily = spaceRemove.cap(1);
 
     for (quint8 b=0 ; b<visibleTabWidget->pEntryBox.size() ; b++) visibleTabWidget->pEntryBox.at(b)->deleteLater();
 
@@ -2259,9 +2263,9 @@ void Person::nameEdited(QString name) {
 void Person::setValues()
 {
     DE_BUG "void Person::setValues()" << id;
-    uiName1st->setText(INDI(id).nameFirst);
-    uiName2nd->setText(INDI(id).name2nd);
-    uiName3rd->setText(INDI(id).name3rd);
+    uiName1st->setText(INDI(id).nameFirst.replace("_"," "));
+    uiName2nd->setText(INDI(id).name2nd.replace("_"," "));
+    uiName3rd->setText(INDI(id).name3rd.replace("_"," "));
     uiNameFamily->setText(INDI(id).nameFamily);
 
     uiLcdNumber->display((int)id);
